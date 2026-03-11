@@ -7,6 +7,7 @@ export const siteConfig = {
   logoUrl: '/logo-villa-cuiabar.png',
   whatsappNumber: '551933058878',
   whatsappMessage: 'Olá, tudo bem?',
+  whatsappChannelUrl: 'https://whatsapp.com/channel/0029VbAcHLXFSAsxCt6lly0a',
   commercialWhatsappNumber: '551933058878',
   commercialWhatsappMessage: 'Olá! Quero falar com o time do ProRefeição.',
   calendarEmbedUrl:

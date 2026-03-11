@@ -1,4 +1,5 @@
 import { GoogleCalendarEmbed } from '../components/GoogleCalendarEmbed';
+import { WhatsAppChannelPopup } from '../components/WhatsAppChannelPopup';
 import { WhatsAppContactCard } from '../components/WhatsAppContactCard';
 import { DifferentialsSection } from '../sections/DifferentialsSection';
 import { HeroSection } from '../sections/HeroSection';
@@ -18,6 +19,7 @@ const HomePage = () => {
 
   return (
     <>
+      <WhatsAppChannelPopup href={siteConfig.whatsappChannelUrl} />
       <HeroSection />
       <DifferentialsSection />
       <MenuHighlightsSection />
