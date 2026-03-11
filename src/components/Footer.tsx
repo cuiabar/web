@@ -7,7 +7,7 @@ export const Footer = () => (
     <div className="container-shell grid gap-8 md:grid-cols-4">
       <div>
         <div className="flex items-center gap-3">
-          <img src={siteConfig.logoUrl} alt="" className="h-12 w-12 rounded-full object-cover" />
+          <img src={siteConfig.logoUrl} alt="" className="h-12 w-12 rounded-full object-cover transition duration-500 hover:rotate-6 hover:scale-105" />
           <h3 className="font-heading text-2xl">{siteConfig.brandShortName}</h3>
         </div>
         <p className="mt-3 text-sm text-white/80">

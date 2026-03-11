@@ -1,27 +1,28 @@
 import { Link } from 'react-router-dom';
+import { Reveal } from '../components/Reveal';
 import { SectionHeading } from '../components/SectionHeading';
 import { menuHighlights } from '../data/content';
 import { siteConfig } from '../data/siteConfig';
 
 export const MenuHighlightsSection = () => (
   <section className="container-shell py-12">
-    <div className="card p-6 sm:p-8">
+    <Reveal className="card p-6 sm:p-8">
       <SectionHeading
         eyebrow="Menu"
         title="Alguns dos pratos que fazem a Villa Cuiabar rodar forte no delivery"
         description="Seleção baseada no cardápio atual da casa para quem quer abrir o menu completo e pedir sem atrito."
       />
       <div className="mt-8 grid gap-4 md:grid-cols-2">
-        {menuHighlights.map((item) => (
-          <article key={item.name} className="overflow-hidden rounded-2xl border border-sand/50 bg-white">
-            <img src={item.image} alt={item.name} loading="lazy" className="h-44 w-full object-cover" />
+        {menuHighlights.map((item, index) => (
+          <Reveal key={item.name} as="article" delay={index * 80} className="overflow-hidden rounded-2xl border border-sand/50 bg-white shadow-soft transition duration-500 hover:-translate-y-1 hover:shadow-[0_24px_60px_-26px_rgba(51,35,19,0.55)]">
+            <img src={item.image} alt={item.name} loading="lazy" className="media-lift h-44 w-full object-cover" />
             <div className="p-4">
               <p className="text-xs uppercase tracking-wider text-terracotta">{item.category}</p>
               <h3 className="mt-1 font-heading text-2xl">{item.name}</h3>
               <p className="mt-2 text-sm text-steel">{item.description}</p>
               <p className="mt-3 font-semibold text-cocoa">{item.price}</p>
             </div>
-          </article>
+          </Reveal>
         ))}
       </div>
       <div className="mt-8 flex flex-wrap gap-3">
@@ -30,6 +31,6 @@ export const MenuHighlightsSection = () => (
           Pedir no site
         </a>
       </div>
-    </div>
+    </Reveal>
   </section>
 );

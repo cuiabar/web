@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Reveal } from '../components/Reveal';
 import { SectionHeading } from '../components/SectionHeading';
 import { menuSectionEmojis, menuSections, menuSectionsWithImages } from '../data/menu';
 import type { MenuSection } from '../data/types';
@@ -79,7 +80,7 @@ const MenuPage = () => {
 
   return (
     <section className="container-shell space-y-10 py-14">
-      <header className="card p-8">
+      <Reveal as="header" className="card p-8">
         <SectionHeading
           eyebrow="Menu 2025"
           title="Cardápio completo da Villa Cuiabar, agora dentro do site"
@@ -96,9 +97,9 @@ const MenuPage = () => {
         <p className="mt-4 text-sm text-steel">
           {menuSections.length} seções organizadas com {totalItems} itens para almoço, jantar, petiscos, bebidas e complementos.
         </p>
-      </header>
+      </Reveal>
 
-      <nav className="card p-5">
+      <Reveal as="nav" delay={80} className="card p-5">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-terracotta">Ir direto para a seção</p>
         <div className="mt-4 flex flex-wrap gap-2">
           {groupedMenuSections.map((group) => (
@@ -112,11 +113,11 @@ const MenuPage = () => {
             </a>
           ))}
         </div>
-      </nav>
+      </Reveal>
 
       <div className="space-y-6">
-        {groupedMenuSections.map((group) => (
-          <section key={group.id} id={group.id} className="space-y-6 scroll-mt-28">
+        {groupedMenuSections.map((group, groupIndex) => (
+          <Reveal key={group.id} as="section" id={group.id} delay={groupIndex * 90} className="space-y-6 scroll-mt-28">
             <div className="card p-6 sm:p-8">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-terracotta">{group.emoji} Categoria</p>
               <h2 className="mt-2 font-heading text-4xl text-cocoa sm:text-5xl">{group.label}</h2>
@@ -173,7 +174,7 @@ const MenuPage = () => {
                               src={item.image}
                               alt={item.name}
                               loading="lazy"
-                              className="h-16 w-16 rounded-2xl border border-sand/50 object-cover sm:h-20 sm:w-20"
+                              className="media-lift h-16 w-16 rounded-2xl border border-sand/50 object-cover sm:h-20 sm:w-20"
                             />
                           ) : null}
                         </div>
@@ -183,7 +184,7 @@ const MenuPage = () => {
                 </section>
               );
             })}
-          </section>
+          </Reveal>
         ))}
       </div>
     </section>
