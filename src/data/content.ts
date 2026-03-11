@@ -1,42 +1,42 @@
 import type { BlogPost, FaqItem, Feature, MenuHighlight, Testimonial } from './types';
 
 export const differentiators: Feature[] = [
-  { title: 'Comida brasileira', description: 'Sabores regionais com execução refinada.', icon: '🍛' },
-  { title: 'Delivery eficiente', description: 'Receba rápido com qualidade e segurança.', icon: '🛵' },
-  { title: 'Música ao vivo', description: 'Agenda semanal com artistas locais e nacionais.', icon: '🎵' },
-  { title: 'Ambiente familiar', description: 'Conforto para encontros, aniversários e celebrações.', icon: '👨‍👩‍👧‍👦' },
-  { title: 'Reservas facilitadas', description: 'Garanta sua mesa em poucos cliques.', icon: '📅' },
-  { title: 'Operação corporativa', description: 'ProRefeição para empresas com SLA e escala.', icon: '🏢' },
+  { title: 'Espaço familiar', description: 'Ambiente pensado para almoço em família e encontros descontraídos.', icon: '👨‍👩‍👧‍👦' },
+  { title: 'Brinquedo para crianças', description: 'Mais conforto para quem vai com os pequenos.', icon: '🛝' },
+  { title: 'Bar completo', description: 'Drinks, cervejas e acompanhamentos para qualquer ocasião.', icon: '🍹' },
+  { title: 'Preço justo', description: 'Pratos bem servidos com custo-benefício honesto.', icon: '💸' },
+  { title: 'Espaço aberto', description: 'Clima leve para curtir o presencial com mais conforto.', icon: '🌿' },
+  { title: 'Atendimento de primeira', description: 'Equipe próxima, rápida e preparada para receber bem.', icon: '⭐' },
 ];
 
 export const menuHighlights: MenuHighlight[] = [
   {
-    name: 'Jantinha Executiva',
-    category: 'Prato executivo',
-    description: 'Arroz, feijão, farofa da casa, vinagrete e proteína do dia.',
-    price: 'R$ 39,90',
-    image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=80',
+    name: 'Bife Chorizo',
+    category: 'Corte nobre',
+    description: 'Contrafilé alto e marmorizado, servido com mandioca frita da casa.',
+    price: 'R$ 56,00',
+    image: 'https://static.wixstatic.com/media/f30eee_089ca416fa0f43868ce21b3a0abf46d8~mv2.png',
   },
   {
     name: 'Costela Cuiabar',
     category: 'Especial da casa',
-    description: 'Costela bovina assada lentamente com mandioca cremosa.',
-    price: 'R$ 64,90',
-    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=80',
+    description: 'Costela bovina sem osso, assada no bafo e servida com mandioca frita.',
+    price: 'R$ 41,00',
+    image: 'https://static.wixstatic.com/media/f30eee_f034abb51d4d498eb80fcd74901bafbd~mv2.png',
   },
   {
-    name: 'Linguiça Cuiabana',
+    name: 'Pancetinha',
     category: 'Petisco',
-    description: 'Linguiça artesanal com queijo coalho e chimichurri brasileiro.',
-    price: 'R$ 48,90',
-    image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=900&q=80',
+    description: 'Torresmo de rolo carnudo, assado e depois frito, com fritas e barbecue.',
+    price: 'R$ 42,00',
+    image: 'https://static.wixstatic.com/media/f30eee_b9aa5997e2aa4a0bac11814ce1e355f9~mv2.png',
   },
   {
-    name: 'Parmegiana de Frango',
-    category: 'Clássico',
-    description: 'Filé empanado, molho caseiro e queijo gratinado no ponto.',
-    price: 'R$ 52,90',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=80',
+    name: 'Parmignon',
+    category: 'Parmegiana',
+    description: 'Parmegiana de mignon com arroz e fritas.',
+    price: 'R$ 59,00',
+    image: 'https://static.wixstatic.com/media/f30eee_725e61a60a9a4e8e91766fb2975411a2~mv2.png',
   },
 ];
 
@@ -85,40 +85,24 @@ export const blogPosts: BlogPost[] = [
 
 export const reservationFaqs: FaqItem[] = [
   {
-    question: 'Posso reservar para aniversários e grupos grandes?',
-    answer: 'Sim. Temos atendimento especial para aniversários, confraternizações e grupos corporativos.',
+    question: 'Como faço minha reserva?',
+    answer: 'As reservas e confirmações são feitas exclusivamente pelo WhatsApp do restaurante.',
   },
   {
-    question: 'Qual o prazo ideal para reservar?',
-    answer: 'Recomendamos reserva com 24h de antecedência, principalmente para noites com música ao vivo.',
+    question: 'Quando tem música ao vivo?',
+    answer: 'O presencial com música acontece às sextas, sábados e domingos.',
   },
   {
-    question: 'A reserva garante mesa próxima ao palco?',
-    answer: 'Fazemos o possível para atender preferências, conforme disponibilidade no momento da confirmação.',
+    question: 'Quais dias têm atendimento noturno?',
+    answer: 'O delivery à noite funciona de quarta a sábado.',
   },
 ];
 
-export const testimonials: Testimonial[] = [
-  {
-    name: 'Mariana Costa',
-    role: 'Cliente frequente',
-    quote: 'Ambiente impecável, atendimento acolhedor e comida brasileira com apresentação de alto nível.',
-  },
-  {
-    name: 'Rafael Tavares',
-    role: 'Gestor de RH',
-    quote: 'O ProRefeição elevou a experiência do nosso time: pontualidade, padrão e suporte excelente.',
-  },
-  {
-    name: 'Camila Souza',
-    role: 'Empresária',
-    quote: 'Melhor opção de música ao vivo em Campinas para quem quer jantar com conforto e estilo.',
-  },
-];
+export const testimonials: Testimonial[] = [];
 
 export const proBenefits = [
-  'Cardápios personalizados por perfil de equipe',
-  'Processo de contratação simples e acompanhamento dedicado',
-  'Escala para eventos, operações recorrentes e ações corporativas',
-  'Relatórios e previsibilidade para gestão financeira',
+  'Almoços e jantares frescos com padrão para equipes, hóspedes, visitantes e pacientes',
+  'Atendimento para escritórios, fábricas, obras, clínicas, hospitais e casas de repouso',
+  'Operação contínua com qualidade, variedade e organização todos os dias',
+  'Pontualidade, previsibilidade e pagamento facilitado para a rotina da empresa',
 ];

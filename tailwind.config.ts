@@ -21,8 +21,8 @@ const config: Config = {
         card: '1.5rem',
       },
       fontFamily: {
-        heading: ['"Playfair Display"', 'Georgia', 'serif'],
-        body: ['"Inter"', 'system-ui', 'sans-serif'],
+        heading: ['"Moranga"', 'Georgia', 'serif'],
+        body: ['"Moranga"', 'Georgia', 'serif'],
       },
     },
   },

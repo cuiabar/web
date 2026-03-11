@@ -3,3 +3,10 @@ dist
 .DS_Store
 *.log
 .wrangler
+*.err
+*.tsbuildinfo
+tmp-menu-source.html
+tmp-menu.json
+.codex-*
+vite.config.js
+vite.config.d.ts

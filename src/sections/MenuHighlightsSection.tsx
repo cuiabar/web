@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom';
 import { SectionHeading } from '../components/SectionHeading';
 import { menuHighlights } from '../data/content';
+import { siteConfig } from '../data/siteConfig';
 
 export const MenuHighlightsSection = () => (
   <section className="container-shell py-12">
     <div className="card p-6 sm:p-8">
       <SectionHeading
-        eyebrow="Pedidos Online"
-        title="Peça rápido e receba com qualidade em Campinas"
-        description="Cardápio pensado para manter sabor e apresentação do restaurante até a sua casa."
+        eyebrow="Menu"
+        title="Alguns dos pratos que fazem a Villa Cuiabar rodar forte no delivery"
+        description="Seleção baseada no cardápio atual da casa para quem quer abrir o menu completo e pedir sem atrito."
       />
       <div className="mt-8 grid gap-4 md:grid-cols-2">
         {menuHighlights.map((item) => (
@@ -23,7 +24,12 @@ export const MenuHighlightsSection = () => (
           </article>
         ))}
       </div>
-      <Link to="/pedidos-online" className="btn-primary mt-8">Ir para pedidos online</Link>
+      <div className="mt-8 flex flex-wrap gap-3">
+        <Link to="/menu" className="btn-primary">Abrir menu completo</Link>
+        <a href={siteConfig.orderLinks.direct} target="_blank" rel="noreferrer" className="btn-secondary">
+          Pedir no site
+        </a>
+      </div>
     </div>
   </section>
 );

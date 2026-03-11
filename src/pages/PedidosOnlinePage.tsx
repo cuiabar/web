@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { menuHighlights } from '../data/content';
 import { siteConfig } from '../data/siteConfig';
 import { useSeo } from '../hooks/useSeo';
@@ -11,15 +12,15 @@ const channels = [
 
 const PedidosOnlinePage = () => {
   useSeo({
-    title: 'Pedidos Online | Delivery em Campinas com qualidade Cuiabar',
-    description: 'Faça seu pedido online no Cuiabar: delivery em Campinas com sabor, agilidade e canais múltiplos.',
+    title: 'Pedidos Online | Villa Cuiabar | Campinas',
+    description: 'Faça seu pedido na Villa Cuiabar pelos canais oficiais de delivery.',
   });
 
   return (
     <section className="container-shell space-y-10 py-14">
       <header className="card p-8">
         <h1 className="font-heading text-5xl">Delivery em Campinas para pedir do seu jeito</h1>
-        <p className="mt-3 text-steel">Escolha seu canal favorito e receba pratos com padrão Cuiabar na sua casa ou empresa.</p>
+        <p className="mt-3 text-steel">Peça pelo canal que preferir e confira o cardápio completo da Villa Cuiabar.</p>
       </header>
       <div className="grid gap-4 md:grid-cols-2">
         {channels.map((channel) => (
@@ -42,6 +43,9 @@ const PedidosOnlinePage = () => {
             </article>
           ))}
         </div>
+        <Link to={siteConfig.menuPageUrl} className="btn-secondary mt-6 inline-flex">
+          Abrir menu completo
+        </Link>
       </section>
     </section>
   );

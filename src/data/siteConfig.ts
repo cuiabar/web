@@ -1,37 +1,42 @@
 import type { NavItem } from './types';
 
 export const siteConfig = {
-  brandName: 'Cuiabar Restaurante',
+  brandName: 'Villa Cuiabar | Campinas',
+  brandShortName: 'Villa Cuiabar',
   city: 'Campinas',
-  whatsappNumber: '5519999999999',
-  whatsappMessage: 'Olá! Quero falar com o Cuiabar Restaurante.',
+  logoUrl: '/logo-villa-cuiabar.png',
+  whatsappNumber: '551933058878',
+  whatsappMessage: 'Olá, tudo bem?',
+  commercialWhatsappNumber: '551933058878',
+  commercialWhatsappMessage: 'Olá! Quero falar com o time do ProRefeição.',
   calendarEmbedUrl:
-    'https://calendar.google.com/calendar/embed?src=SEU_CALENDARIO_PUBLICO_AQUI&ctz=America%2FSao_Paulo',
+    'https://calendar.google.com/calendar/embed?src=c_cb44b5a5c24377de0d7ec7a6bb840f4ed667ce355c9b4611a4b9d9e1ff7e5782%40group.calendar.google.com&ctz=America%2FSao_Paulo',
   orderLinks: {
-    direct: 'https://pedido.cuiabar.com.br',
-    ifood: 'https://www.ifood.com.br',
-    food99: 'https://www.99food.com.br',
-    whatsapp: 'https://wa.me/5519999999999',
+    direct: 'https://expresso.cuiabar.com',
+    ifood:
+      'https://www.ifood.com.br/delivery/campinas-sp/villa-cuiabar--executivos--pratos-do-dia-jardim-aurelia/1af0e396-a7c8-46e1-b1a5-dd06486bb4ad',
+    food99: 'https://oia.99app.com/dlp9/C94oJv?area=BR',
+    whatsapp: 'https://wa.me/551933058878?text=Ol%C3%A1%2C%20tudo%20bem%3F',
   },
+  menuPageUrl: '/menu',
+  prorefeicaoPageUrl: 'https://www.cuiabar.com/prorefeicao',
   socialLinks: {
     instagram: 'https://instagram.com/cuiabar',
-    facebook: 'https://facebook.com/cuiabar',
-    youtube: 'https://youtube.com/@cuiabar',
+    facebook: 'https://facebook.com/villacuiabar',
   },
-  address: 'Av. Exemplo, 1234 - Cambuí, Campinas - SP',
+  address: 'Av. Brigadeiro Rafael Tobias de Aguiar, 1121 - Jardim Aurélia - Campinas/SP',
   openingHours: [
-    'Seg a Qui: 11h às 15h | 18h às 23h',
-    'Sex e Sáb: 11h às 00h',
-    'Dom: 11h às 17h',
+    'Delivery no almoço todos os dias',
+    'Delivery à noite de quarta a sábado',
+    'Presencial com música ao vivo às sextas, sábados e domingos',
   ],
-  email: 'contato@cuiabar.com.br',
-  phone: '(19) 3333-0000',
+  email: 'cuiabar@cuiabar.net',
+  phone: '(19) 3305-8878',
 };
 
 export const navItems: NavItem[] = [
   { label: 'Home', to: '/' },
-  { label: 'Blog', to: '/blog' },
+  { label: 'Menu', to: '/menu' },
   { label: 'ProRefeição', to: '/prorefeicao' },
-  { label: 'Pedidos Online', to: '/pedidos-online' },
   { label: 'Reservas', to: '/reservas' },
 ];

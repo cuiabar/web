@@ -1,4 +1,8 @@
-export type NavItem = { label: string; to: string };
+export type NavItem = {
+  label: string;
+  to: string;
+  external?: boolean;
+};
 
 export type Feature = {
   title: string;
@@ -34,4 +38,23 @@ export type Testimonial = {
   name: string;
   role: string;
   quote: string;
+};
+
+export type MenuVariant = {
+  name: string;
+  price: string;
+};
+
+export type MenuItem = {
+  name: string;
+  description: string;
+  price: string;
+  variants: MenuVariant[];
+  image: string;
+};
+
+export type MenuSection = {
+  name: string;
+  description: string;
+  items: MenuItem[];
 };

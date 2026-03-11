@@ -1,25 +1,35 @@
-import { ReservationForm } from '../components/ReservationForm';
+import { WhatsAppContactCard } from '../components/WhatsAppContactCard';
 import { reservationFaqs } from '../data/content';
 import { siteConfig } from '../data/siteConfig';
 import { useSeo } from '../hooks/useSeo';
 
 const ReservasPage = () => {
+  const reservationHref = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`;
+
   useSeo({
-    title: 'Reservas | Reserve sua mesa no Cuiabar Restaurante em Campinas',
-    description: 'Faça reservas para restaurante em Campinas com música ao vivo, aniversários e ocasiões especiais.',
+    title: 'Reservas | Villa Cuiabar | Campinas',
+    description: 'Reservas e atendimento da Villa Cuiabar feitos diretamente pelo WhatsApp.',
   });
 
   return (
     <section className="container-shell space-y-10 py-14">
       <header className="card p-8">
-        <h1 className="font-heading text-5xl">Reserve sua mesa no Cuiabar</h1>
-        <p className="mt-3 text-steel">Ideal para encontros em família, datas especiais, aniversários e reservas de grupos em Campinas.</p>
+        <h1 className="font-heading text-5xl">Reservas na Villa Cuiabar</h1>
+        <p className="mt-3 text-steel">
+          Todo o atendimento de reservas acontece pelo WhatsApp, com resposta direta da equipe para mesas, aniversários e grupos.
+        </p>
       </header>
       <section className="grid gap-8 lg:grid-cols-2">
-        <ReservationForm />
+        <WhatsAppContactCard
+          title="Chame a equipe no WhatsApp"
+          description="Envie sua mensagem e combine reserva, horário, quantidade de pessoas e qualquer detalhe especial."
+          href={reservationHref}
+          buttonLabel="Abrir WhatsApp"
+          note="Música ao vivo às sextas, sábados e domingos."
+        />
         <div className="card p-8">
           <h2 className="font-heading text-3xl">Como funciona</h2>
-          <p className="mt-3 text-steel">Após enviar o formulário, nossa equipe confirma a disponibilidade e envia orientações pelo WhatsApp.</p>
+          <p className="mt-3 text-steel">A equipe confirma disponibilidade, horários e orientações diretamente na conversa.</p>
           <h3 className="mt-6 font-heading text-2xl">Perguntas frequentes</h3>
           <div className="mt-3 space-y-3">
             {reservationFaqs.map((faq) => (
@@ -31,7 +41,7 @@ const ReservasPage = () => {
           </div>
         </div>
       </section>
-      <a href={`https://wa.me/${siteConfig.whatsappNumber}`} target="_blank" rel="noreferrer" className="btn-primary">Reservas rápidas por WhatsApp</a>
+      <a href={reservationHref} target="_blank" rel="noreferrer" className="btn-primary">Reservas rápidas por WhatsApp</a>
     </section>
   );
 };

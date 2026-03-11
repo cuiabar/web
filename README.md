@@ -75,6 +75,8 @@ git push -u origin HEAD
 npm run deploy:pages
 ```
 
+O script de deploy direto publica no projeto Pages `cuiabar-site`. Se o projeto ainda não existir na conta Cloudflare, crie-o primeiro no dashboard ou ajuste o nome no script.
+
 ## Arquivos Cloudflare
 - `wrangler.toml`: inclui `pages_build_output_dir = "dist"`
 - `public/_redirects`: fallback para SPA (`/* /index.html 200`)

@@ -5,8 +5,8 @@ export const DifferentialsSection = () => (
   <section className="container-shell py-12">
     <SectionHeading
       eyebrow="Diferenciais"
-      title="Tudo que você espera de um restaurante em Campinas"
-      description="Comida brasileira em Campinas com padrão premium acessível, atendimento humano e soluções para diferentes ocasiões."
+      title="O lugar certo para almoço, happy hour e encontro em família"
+      description="Estrutura pensada para atender bem no delivery, no presencial e nas noites com música ao vivo em Campinas."
     />
     <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {differentiators.map((item) => (

@@ -1,19 +1,20 @@
 import { Suspense, lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { Layout } from '../components/Layout';
 
 const HomePage = lazy(() => import('../pages/HomePage'));
-const BlogPage = lazy(() => import('../pages/BlogPage'));
+const MenuPage = lazy(() => import('../pages/MenuPage'));
 const ProRefeicaoPage = lazy(() => import('../pages/ProRefeicaoPage'));
 const PedidosOnlinePage = lazy(() => import('../pages/PedidosOnlinePage'));
 const ReservasPage = lazy(() => import('../pages/ReservasPage'));
 
 export const App = () => (
-  <Suspense fallback={<div className="container-shell py-24">Carregando experiência Cuiabar...</div>}>
+  <Suspense fallback={<div className="container-shell py-24">Carregando Villa Cuiabar...</div>}>
     <Layout>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog" element={<Navigate to="/" replace />} />
+        <Route path="/menu" element={<MenuPage />} />
         <Route path="/prorefeicao" element={<ProRefeicaoPage />} />
         <Route path="/pedidos-online" element={<PedidosOnlinePage />} />
         <Route path="/reservas" element={<ReservasPage />} />
