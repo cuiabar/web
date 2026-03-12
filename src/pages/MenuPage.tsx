@@ -18,6 +18,12 @@ const totalItems = menuSections.reduce((sum, section) => sum + section.items.len
 
 const formatDescription = (value: string) => value.replace(/^"|"$/g, '');
 
+const highResolutionMenuImages = new Set([
+  '/menu/bife-chorizo.png',
+  '/menu/costela-cuiabar.png',
+  '/menu/parchicken.png',
+]);
+
 const menuSectionGroups: Array<{
   id: string;
   label: string;
@@ -169,12 +175,12 @@ const MenuPage = () => {
                             ) : null}
                           </div>
 
-                          {showImages && item.image ? (
+                          {showImages && item.image && highResolutionMenuImages.has(item.image) ? (
                             <img
                               src={item.image}
                               alt={item.name}
                               loading="lazy"
-                              className="media-lift h-16 w-16 rounded-2xl border border-sand/50 object-cover sm:h-20 sm:w-20"
+                              className="h-16 w-16 rounded-2xl border border-sand/50 object-cover sm:h-20 sm:w-20"
                             />
                           ) : null}
                         </div>
