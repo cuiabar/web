@@ -60,18 +60,18 @@ const commercialSteps = [
 
 const showcaseMeals = [
   {
-    src: '/menu/parchicken.png',
+    src: '/prorefeicao/hero-parmegiana.png',
     alt: 'Refeição corporativa com parmegiana, arroz e fritas',
     className: 'pro-immersive-card pro-immersive-card-primary',
   },
   {
-    src: '/menu/costela-cuiabar.png',
+    src: '/prorefeicao/costela.png',
     alt: 'Refeição corporativa com costela, arroz e mandioca',
     className: 'pro-immersive-card pro-immersive-card-secondary',
   },
   {
-    src: '/menu/tilapia-fresca.png',
-    alt: 'Refeição corporativa com filé e legumes',
+    src: '/prorefeicao/chorizo.png',
+    alt: 'Refeição corporativa com corte grelhado e acompanhamentos',
     className: 'pro-immersive-card pro-immersive-card-tertiary',
   },
 ];
@@ -210,12 +210,12 @@ const ProRefeicaoPage = () => {
               <div className="pro-immersive-aura pro-immersive-aura-soft" />
               <div className="pro-immersive-card pro-immersive-card-packaging-main">
                 <div className="pro-immersive-shell pro-immersive-shell-light">
-                  <img src="/menu/parchicken.png" alt="Refeição pronta com montagem padronizada" loading="lazy" className="pro-immersive-image" />
+                  <img src="/prorefeicao/hero-parmegiana.png" alt="Refeição pronta com montagem padronizada" loading="lazy" className="pro-immersive-image" />
                 </div>
               </div>
               <div className="pro-immersive-card pro-immersive-card-packaging-support">
                 <div className="pro-immersive-shell pro-immersive-shell-light">
-                  <img src="/menu/costela-cuiabar.png" alt="Refeição com proteína, arroz e acompanhamentos" loading="lazy" className="pro-immersive-image" />
+                  <img src="/prorefeicao/costela.png" alt="Refeição com proteína, arroz e acompanhamentos" loading="lazy" className="pro-immersive-image" />
                 </div>
               </div>
             </div>
