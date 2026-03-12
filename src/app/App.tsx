@@ -16,12 +16,13 @@ export const App = () => (
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/blog" element={<Navigate to="/" replace />} />
+        <Route path="/burguer-cuiabar" element={<Navigate to="/burguer" replace />} />
+        <Route path="/burguer" element={<BurguerCuiabarPage />} />
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/prorefeicao" element={<ProRefeicaoPage />} />
         <Route path="/pedidos-online" element={<PedidosOnlinePage />} />
         <Route path="/reservas" element={<ReservasPage />} />
         <Route path="/vagas" element={<VagasPage />} />
-        <Route path="/burguer-cuiabar" element={<BurguerCuiabarPage />} />
       </Routes>
     </Layout>
   </Suspense>

@@ -38,7 +38,7 @@ export const siteConfig = {
 export const navItems: NavItem[] = [
   { label: 'Home', to: '/' },
   { label: 'Menu', to: '/menu' },
-  { label: 'Burguer Cuiabar', to: '/burguer-cuiabar', variant: 'highlight' },
+  { label: 'Burguer Cuiabar', to: '/burguer', variant: 'highlight' },
   { label: 'ProRefeição', to: '/prorefeicao' },
   { label: 'Reservas', to: '/reservas' },
   { label: 'Vagas', to: '/vagas' },
