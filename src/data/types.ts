@@ -2,6 +2,7 @@ export type NavItem = {
   label: string;
   to: string;
   external?: boolean;
+  variant?: 'default' | 'highlight';
 };
 
 export type Feature = {

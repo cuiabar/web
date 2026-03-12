@@ -22,7 +22,11 @@ export const Header = () => {
                 href={item.to}
                 target="_blank"
                 rel="noreferrer"
-                className="relative text-sm font-medium text-steel transition hover:text-cocoa after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-terracotta after:transition-transform after:duration-300 hover:after:scale-x-100"
+                className={
+                  item.variant === 'highlight'
+                    ? 'inline-flex items-center rounded-full bg-[#ea533d] px-4 py-2 text-sm font-semibold text-white shadow-[0_18px_34px_-18px_rgba(234,83,61,0.92)] transition hover:-translate-y-0.5 hover:bg-[#511215]'
+                    : 'relative text-sm font-medium text-steel transition hover:text-cocoa after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-terracotta after:transition-transform after:duration-300 hover:after:scale-x-100'
+                }
               >
                 {item.label}
               </a>
@@ -31,7 +35,9 @@ export const Header = () => {
                 key={item.to}
                 to={item.to}
                 className={({ isActive }) =>
-                  `relative text-sm font-medium transition after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:bg-terracotta after:transition-transform after:duration-300 ${isActive ? 'text-terracotta after:scale-x-100' : 'text-steel hover:text-cocoa after:scale-x-0 hover:after:scale-x-100'}`
+                  item.variant === 'highlight'
+                    ? `inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold text-white shadow-[0_18px_34px_-18px_rgba(234,83,61,0.92)] transition ${isActive ? 'bg-[#511215]' : 'bg-[#ea533d] hover:-translate-y-0.5 hover:bg-[#511215]'}`
+                    : `relative text-sm font-medium transition after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:bg-terracotta after:transition-transform after:duration-300 ${isActive ? 'text-terracotta after:scale-x-100' : 'text-steel hover:text-cocoa after:scale-x-0 hover:after:scale-x-100'}`
                 }
               >
                 {item.label}
@@ -57,12 +63,17 @@ export const Header = () => {
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => setOpen(false)}
-                  className="text-steel"
+                  className={item.variant === 'highlight' ? 'rounded-full bg-[#ea533d] px-4 py-2 text-center font-semibold text-white' : 'text-steel'}
                 >
                   {item.label}
                 </a>
               ) : (
-                <NavLink key={item.to} to={item.to} onClick={() => setOpen(false)} className="text-steel">
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  onClick={() => setOpen(false)}
+                  className={item.variant === 'highlight' ? 'rounded-full bg-[#ea533d] px-4 py-2 text-center font-semibold text-white' : 'text-steel'}
+                >
                   {item.label}
                 </NavLink>
               )
