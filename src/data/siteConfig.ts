@@ -40,4 +40,5 @@ export const navItems: NavItem[] = [
   { label: 'Menu', to: '/menu' },
   { label: 'ProRefeição', to: '/prorefeicao' },
   { label: 'Reservas', to: '/reservas' },
+  { label: 'Vagas', to: '/vagas' },
 ];
