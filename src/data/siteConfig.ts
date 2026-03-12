@@ -19,6 +19,11 @@ export const siteConfig = {
     food99: 'https://oia.99app.com/dlp9/C94oJv?area=BR',
     whatsapp: 'https://wa.me/551933058878?text=Ol%C3%A1%2C%20tudo%20bem%3F',
   },
+  burguerOrderLinks: {
+    direct: 'https://expresso.cuiabar.com',
+    ifood:
+      'https://www.ifood.com.br/delivery/campinas-sp/burger-cuiabar----picanha-smash-vila-proost-de-souza/14734c59-f45a-41e2-80b0-f1914971f6e1?utm_medium=share',
+  },
   menuPageUrl: '/menu',
   prorefeicaoPageUrl: 'https://www.cuiabar.com/prorefeicao',
   socialLinks: {

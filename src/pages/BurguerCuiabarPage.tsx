@@ -51,8 +51,8 @@ const serviceBlocks = [
 ];
 
 const channels = [
-  { label: 'Pedir no site', href: siteConfig.orderLinks.direct, emoji: '🍔' },
-  { label: 'Pedir no iFood', href: siteConfig.orderLinks.ifood, emoji: '🛵' },
+  { label: 'Pedir no site', href: siteConfig.burguerOrderLinks.direct, emoji: '🍔' },
+  { label: 'Pedir no iFood', href: siteConfig.burguerOrderLinks.ifood, emoji: '🛵' },
   {
     label: 'Falar no WhatsApp',
     href: `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent('Olá! Quero pedir no Burguer Cuiabar.')}`,
@@ -146,7 +146,7 @@ const BurguerCuiabarPage = () => {
               </div>
               <div className="flex flex-wrap gap-3">
                 <a
-                  href={siteConfig.orderLinks.direct}
+                  href={siteConfig.burguerOrderLinks.direct}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center justify-center rounded-full bg-[#b64811] px-7 py-3 text-sm font-semibold text-white shadow-[0_24px_48px_-26px_rgba(182,72,17,0.84)] transition hover:-translate-y-1 hover:bg-[#2e0501]"
@@ -154,7 +154,7 @@ const BurguerCuiabarPage = () => {
                   Pedir no site
                 </a>
                 <a
-                  href={siteConfig.orderLinks.ifood}
+                  href={siteConfig.burguerOrderLinks.ifood}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center justify-center rounded-full border border-[#6c4336]/14 bg-white/68 px-7 py-3 text-sm font-semibold text-[#2e0501] transition hover:-translate-y-1 hover:border-[#2e0501] hover:bg-[#2e0501] hover:text-white"
