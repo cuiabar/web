@@ -14,14 +14,14 @@ const channels = [
 const PedidosOnlinePage = () => {
   useSeo({
     title: 'Pedidos Online | Villa Cuiabar | Campinas',
-    description: 'Faça seu pedido na Villa Cuiabar pelos canais oficiais de delivery.',
+    description: 'Faça seu pedido pelos canais oficiais do Villa Cuiabar.',
   });
 
   return (
     <section className="container-shell space-y-10 py-14">
       <Reveal as="header" className="card p-8">
         <h1 className="font-heading text-5xl">Delivery em Campinas para pedir do seu jeito</h1>
-        <p className="mt-3 text-steel">Peça pelo canal que preferir e confira o cardápio completo da Villa Cuiabar.</p>
+        <p className="mt-3 text-steel">Peça pelo canal que preferir e confira o cardápio completo do Villa Cuiabar.</p>
       </Reveal>
       <div className="grid gap-4 md:grid-cols-2">
         {channels.map((channel, index) => (

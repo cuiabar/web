@@ -25,7 +25,7 @@ const vacancies = [
 const VagasPage = () => {
   useSeo({
     title: 'Vagas | Villa Cuiabar | Campinas',
-    description: 'Confira as vagas abertas da Villa Cuiabar e envie sua candidatura pelo formulário oficial.',
+    description: 'Confira as vagas abertas no Villa Cuiabar e envie sua candidatura pelo formulário oficial.',
   });
 
   return (
@@ -35,7 +35,7 @@ const VagasPage = () => {
           <div className="space-y-5 p-8 sm:p-10">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-terracotta">Trabalhe com a gente</p>
             <h1 className="font-heading text-4xl leading-tight text-cocoa sm:text-5xl">
-              Vagas abertas para quem quer crescer com a Villa Cuiabar
+              Vagas abertas para quem quer crescer com o time do Villa Cuiabar
             </h1>
             <p className="max-w-2xl text-base leading-relaxed text-steel sm:text-lg">
               Se você quer fazer parte da operação da casa, escolha a função e preencha o formulário oficial. O envio da

@@ -9,13 +9,13 @@ const ReservasPage = () => {
 
   useSeo({
     title: 'Reservas | Villa Cuiabar | Campinas',
-    description: 'Reservas e atendimento da Villa Cuiabar feitos diretamente pelo WhatsApp.',
+    description: 'Reservas e atendimento do Villa Cuiabar feitos diretamente pelo WhatsApp.',
   });
 
   return (
     <section className="container-shell space-y-10 py-14">
       <Reveal as="header" className="card p-8">
-        <h1 className="font-heading text-5xl">Reservas na Villa Cuiabar</h1>
+        <h1 className="font-heading text-5xl">Reservas no Villa Cuiabar</h1>
         <p className="mt-3 text-steel">
           Todo o atendimento de reservas acontece pelo WhatsApp, com resposta direta da equipe para mesas, aniversários e grupos.
         </p>

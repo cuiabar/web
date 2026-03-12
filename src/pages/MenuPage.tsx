@@ -75,7 +75,7 @@ const groupedMenuSections = menuSectionGroups.map((group) => ({
 const MenuPage = () => {
   useSeo({
     title: 'Menu | Villa Cuiabar | Campinas',
-    description: 'Cardápio completo da Villa Cuiabar com petiscos, pratos, drinks, cervejas, saladas e complementos.',
+    description: 'Cardápio completo do Villa Cuiabar com petiscos, pratos, drinks, cervejas, saladas e complementos.',
   });
 
   return (
@@ -83,7 +83,7 @@ const MenuPage = () => {
       <Reveal as="header" className="card p-8">
         <SectionHeading
           eyebrow="Menu 2025"
-          title="Cardápio completo da Villa Cuiabar, agora dentro do site"
+          title="Cardápio completo do Villa Cuiabar, agora dentro do site"
           description="Cópia local do menu com 20 seções e 124 itens, para o cliente consultar tudo sem depender do site antigo."
         />
         <div className="mt-6 flex flex-wrap gap-3">

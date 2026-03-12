@@ -28,7 +28,7 @@ const HomePage = () => {
         <GoogleCalendarEmbed
           src={siteConfig.calendarEmbedUrl}
           title="Agenda de shows"
-          description="Acompanhe a programação de música ao vivo da Villa Cuiabar."
+          description="Acompanhe a programação de música ao vivo no Villa Cuiabar."
         />
       </section>
       <section className="container-shell py-12">

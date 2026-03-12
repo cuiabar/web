@@ -85,7 +85,7 @@ export const WhatsAppChannelPopup = ({ href }: WhatsAppChannelPopupProps) => {
         <div className="bg-gradient-to-r from-terracotta via-clay to-mustard px-6 py-5 text-white sm:px-8">
           <p className="text-sm font-semibold uppercase tracking-[0.28em] text-white/80">WhatsApp</p>
           <h2 id="whatsapp-channel-popup-title" className="mt-2 text-3xl font-black leading-tight sm:text-4xl">
-            📣 Entre no canal da Villa Cuiabar
+            📣 Entre no canal oficial do Villa Cuiabar
           </h2>
         </div>
         <div className="space-y-5 px-6 py-6 sm:px-8 sm:py-8">

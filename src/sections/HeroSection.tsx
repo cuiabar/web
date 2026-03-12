@@ -12,7 +12,7 @@ export const HeroSection = () => (
         Delivery forte no almoço, noites com música ao vivo e comida brasileira de verdade.
       </h1>
       <p className="mt-5 max-w-xl text-lg text-steel">
-        A Villa Cuiabar combina pratos bem servidos, espaço familiar, bar completo e atendimento próximo para quem quer comer bem no Jardim Aurélia.
+        O Villa Cuiabar combina pratos bem servidos, espaço familiar, bar completo e atendimento próximo para quem quer comer bem no Jardim Aurélia.
       </p>
       <div className="mt-8 flex flex-wrap gap-3">
         <Link className="btn-primary" to="/menu">Ver menu</Link>
@@ -22,7 +22,7 @@ export const HeroSection = () => (
     <Reveal delay={140} className="card overflow-hidden p-3">
       <img
         src="https://static.wixstatic.com/media/f30eee_6de0ddcd8445473086c6f3a90f1abb1e~mv2.png"
-        alt="Prato servido na Villa Cuiabar"
+        alt="Prato servido no Villa Cuiabar"
         loading="eager"
         className="media-lift h-[420px] w-full rounded-2xl object-cover"
       />

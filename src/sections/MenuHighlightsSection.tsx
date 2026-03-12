@@ -9,7 +9,7 @@ export const MenuHighlightsSection = () => (
     <Reveal className="card p-6 sm:p-8">
       <SectionHeading
         eyebrow="Menu"
-        title="Alguns dos pratos que fazem a Villa Cuiabar rodar forte no delivery"
+        title="Alguns dos pratos que fazem o Villa Cuiabar rodar forte no delivery"
         description="Seleção baseada no cardápio atual da casa para quem quer abrir o menu completo e pedir sem atrito."
       />
       <div className="mt-8 grid gap-4 md:grid-cols-2">
