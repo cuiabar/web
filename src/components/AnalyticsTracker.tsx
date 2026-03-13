@@ -14,6 +14,8 @@ const classifyInternalPath = (pathname: string) => {
   switch (pathname) {
     case '/menu':
       return { eventName: 'open_menu_page' };
+    case '/pesquisa':
+      return { eventName: 'open_pesquisa_page' };
     case '/burguer':
       return { eventName: 'open_burguer_page' };
     case '/prorefeicao':

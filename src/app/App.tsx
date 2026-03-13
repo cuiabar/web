@@ -6,6 +6,7 @@ const HomePage = lazy(() => import('../pages/HomePage'));
 const MenuPage = lazy(() => import('../pages/MenuPage'));
 const ProRefeicaoPage = lazy(() => import('../pages/ProRefeicaoPage'));
 const PedidosOnlinePage = lazy(() => import('../pages/PedidosOnlinePage'));
+const PesquisaPage = lazy(() => import('../pages/PesquisaPage'));
 const ReservasPage = lazy(() => import('../pages/ReservasPage'));
 const VagasPage = lazy(() => import('../pages/VagasPage'));
 const BurguerCuiabarPage = lazy(() => import('../pages/BurguerCuiabarPage'));
@@ -21,6 +22,7 @@ export const App = () => (
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/prorefeicao" element={<ProRefeicaoPage />} />
         <Route path="/pedidos-online" element={<PedidosOnlinePage />} />
+        <Route path="/pesquisa" element={<PesquisaPage />} />
         <Route path="/reservas" element={<ReservasPage />} />
         <Route path="/vagas" element={<VagasPage />} />
       </Routes>

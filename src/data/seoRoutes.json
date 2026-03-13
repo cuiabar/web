@@ -60,6 +60,23 @@
         }
       ]
     },
+    "/pesquisa": {
+      "title": "Pesquisa Google | Villa Cuiabar | Campinas",
+      "description": "Pesquise páginas, menu, Burguer Cuiabar, ProRefeição, reservas e vagas do Villa Cuiabar com o mecanismo de pesquisa do Google.",
+      "image": "https://cuiabar.com/logo-villa-cuiabar.png",
+      "type": "website",
+      "changefreq": "monthly",
+      "priority": "0.65",
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Pesquisa Google Villa Cuiabar",
+          "url": "https://cuiabar.com/pesquisa",
+          "description": "Página de pesquisa do site Villa Cuiabar usando Google Programmable Search Engine."
+        }
+      ]
+    },
     "/burguer": {
       "title": "Burguer Cuiabar | Burgers e Combos em Campinas",
       "description": "Peça burgers, fritas e combos do Burger Cuiabar pelo site oficial, iFood ou WhatsApp em Campinas.",
