@@ -94,6 +94,11 @@ export const AnalyticsTracker = () => {
         return;
       }
 
+      if (url.hostname.includes('instagram.com')) {
+        trackEvent('click_instagram', params);
+        return;
+      }
+
       if (url.hostname.includes('form.jotform.com')) {
         trackLead('job_application', params);
         return;

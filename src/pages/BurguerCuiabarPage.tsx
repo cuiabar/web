@@ -4,6 +4,7 @@ import { siteConfig } from '../data/siteConfig';
 import { useSeo } from '../hooks/useSeo';
 
 const heroBadges = ['🍔 Burgers', '🍟 Fritas', '🏍️ Delivery', '🥤 Combos'];
+const burgerInstagramUrl = 'https://instagram.com/burgercuiabar';
 
 const highlightCards = [
   {
@@ -24,7 +25,7 @@ const quickSignals = [
   '🍔 Pedido direto no site oficial',
   '🛵 Opção também no iFood',
   '💬 Atendimento no WhatsApp',
-  '📍 Villa Cuiabar em Campinas',
+  '📸 Siga @burgercuiabar',
 ];
 
 const serviceBlocks = [
@@ -120,13 +121,40 @@ const BurguerCuiabarPage = () => {
 
       <div className="container-shell relative space-y-12 py-14">
         <Reveal
+          as="a"
+          href={burgerInstagramUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="group flex flex-col gap-4 overflow-hidden rounded-[2rem] border border-[#6c4336]/12 bg-[linear-gradient(135deg,#2e0501_0%,#511215_48%,#b64811_100%)] px-5 py-5 text-white shadow-[0_28px_70px_-40px_rgba(46,5,1,0.76)] sm:px-6 lg:flex-row lg:items-center lg:justify-between"
+        >
+          <div className="flex items-center gap-4">
+            <div className="flex h-16 w-16 items-center justify-center overflow-hidden rounded-[1.2rem] border border-white/10 bg-white/8">
+              <img src="/burguer/logo-burger-cuiabar.png" alt="Logo do Burguer Cuiabar" className="h-full w-full object-cover" />
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/70">Instagram oficial</p>
+              <p className="mt-1 font-heading text-2xl sm:text-3xl">Siga o Burguer Cuiabar no Instagram</p>
+              <p className="mt-1 text-sm text-white/76">Promoções, lançamentos, fotos novas e novidades em @burgercuiabar.</p>
+            </div>
+          </div>
+          <div className="inline-flex items-center justify-center rounded-full border border-white/14 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition group-hover:-translate-y-0.5 group-hover:bg-white group-hover:text-[#2e0501]">
+            Seguir @burgercuiabar
+          </div>
+        </Reveal>
+
+        <Reveal
           as="header"
           className="overflow-hidden rounded-[2.8rem] border border-[#6c4336]/12 bg-[linear-gradient(135deg,#fffbd6_0%,#fcf2d0_44%,#feddb5_100%)] px-6 py-8 shadow-[0_42px_110px_-56px_rgba(46,5,1,0.46)] sm:px-8 lg:px-10 lg:py-10"
         >
           <div className="grid items-center gap-10 lg:grid-cols-[0.94fr_1.06fr]">
             <div className="space-y-6">
-              <div className="inline-flex items-center rounded-full border border-[#6c4336]/12 bg-white/72 px-4 py-2 text-xs font-semibold uppercase tracking-[0.26em] text-[#b64811]">
-                Burguer Cuiabar
+              <div className="flex items-center gap-4">
+                <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-[1.7rem] border border-[#6c4336]/12 bg-[#1f5b3b] shadow-[0_18px_40px_-24px_rgba(46,5,1,0.45)]">
+                  <img src="/burguer/logo-burger-cuiabar.png" alt="Mascote do Burguer Cuiabar" className="h-full w-full object-cover" />
+                </div>
+                <div className="inline-flex items-center rounded-full border border-[#6c4336]/12 bg-white/72 px-4 py-2 text-xs font-semibold uppercase tracking-[0.26em] text-[#b64811]">
+                  Burguer Cuiabar
+                </div>
               </div>
               <div className="flex flex-wrap gap-2">
                 {heroBadges.map((badge) => (
@@ -176,8 +204,15 @@ const BurguerCuiabarPage = () => {
               <div className="burger-stage-aura burger-stage-aura-2" />
 
               <Reveal
+                delay={60}
+                className="absolute left-1/2 top-0 z-[2] w-[16rem] -translate-x-1/2 overflow-hidden rounded-full border border-white/55 bg-white/78 p-2 shadow-[0_24px_60px_-34px_rgba(46,5,1,0.38)] backdrop-blur sm:w-[20rem]"
+              >
+                <img src="/burguer/capa-burger-cuiabar.png" alt="Banner do Burguer Cuiabar" loading="eager" className="h-20 w-full rounded-full object-cover sm:h-24" />
+              </Reveal>
+
+              <Reveal
                 delay={100}
-                className="absolute left-0 top-10 z-[3] w-[12.5rem] rounded-[1.9rem] border border-white/55 bg-white/82 p-4 shadow-[0_26px_60px_-38px_rgba(46,5,1,0.42)] backdrop-blur sm:w-[14rem]"
+                className="absolute left-0 top-16 z-[3] w-[12.5rem] rounded-[1.9rem] border border-white/55 bg-white/82 p-4 shadow-[0_26px_60px_-38px_rgba(46,5,1,0.42)] backdrop-blur sm:w-[14rem]"
               >
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#b64811]">Pedido rápido</p>
                 <p className="mt-3 text-sm leading-relaxed text-[#6c4336]">Burgers, fritas e combos em um fluxo simples para escolher e pedir.</p>
@@ -188,7 +223,7 @@ const BurguerCuiabarPage = () => {
                 className="absolute right-3 top-4 z-[1] flex h-[18rem] w-[18rem] items-center justify-center rounded-full border border-white/65 bg-[radial-gradient(circle_at_center,#f98203_0%,#ea533d_46%,#b64811_100%)] shadow-[0_42px_110px_-46px_rgba(182,72,17,0.78)] sm:h-[22rem] sm:w-[22rem]"
               >
                 <div className="rounded-full border border-white/45 bg-white/12 p-5 backdrop-blur">
-                  <img src="/burguer/hero-burguer.jpg" alt="Hambúrguer do Burguer Cuiabar" loading="eager" className="h-56 w-56 rounded-full object-cover shadow-[0_28px_70px_-30px_rgba(46,5,1,0.55)] sm:h-72 sm:w-72" />
+                  <img src="/burguer/burger-bacon.png" alt="Hambúrguer com bacon do Burguer Cuiabar" loading="eager" className="h-56 w-56 rounded-full object-cover shadow-[0_28px_70px_-30px_rgba(46,5,1,0.55)] sm:h-72 sm:w-72" />
                 </div>
               </Reveal>
 
@@ -199,10 +234,17 @@ const BurguerCuiabarPage = () => {
               </Reveal>
 
               <Reveal
+                delay={240}
+                className="absolute bottom-8 left-6 z-[3] w-[10rem] rounded-[1.8rem] border border-[#6c4336]/10 bg-white/84 p-3 shadow-[0_24px_60px_-38px_rgba(46,5,1,0.48)] backdrop-blur sm:w-[12rem]"
+              >
+                <img src="/burguer/burger-hand.png" alt="Hambúrguer servido na mão" loading="lazy" className="h-28 w-full rounded-[1.2rem] object-cover sm:h-32" />
+              </Reveal>
+
+              <Reveal
                 delay={280}
                 className="absolute bottom-0 right-0 z-[3] w-[14rem] rounded-[2rem] border border-[#6c4336]/10 bg-white/84 p-4 shadow-[0_28px_70px_-42px_rgba(46,5,1,0.52)] backdrop-blur sm:w-[18rem]"
               >
-                <img src="/burguer/combo-burguer.jpg" alt="Combo do Burguer Cuiabar com acompanhamento" loading="lazy" className="h-44 w-full rounded-[1.4rem] object-cover sm:h-48" />
+                <img src="/burguer/combo-frita-bebida.png" alt="Combo do Burguer Cuiabar com frita e bebida" loading="lazy" className="h-44 w-full rounded-[1.4rem] object-cover sm:h-48" />
                 <div className="mt-4 rounded-[1.2rem] bg-[#fffbd6] px-4 py-3">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#7e8427]">Combos e acompanhamentos</p>
                   <p className="mt-2 text-sm leading-relaxed text-[#6c4336]">Pedidos pensados para ficar prontos com praticidade, do burger à frita.</p>
