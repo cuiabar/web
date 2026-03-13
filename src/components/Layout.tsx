@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { AnalyticsTracker } from './AnalyticsTracker';
 import { Footer } from './Footer';
 import { Header } from './Header';
+import { ScrollManager } from './ScrollManager';
 import { WhatsAppFloatingButton } from './WhatsAppFloatingButton';
 
 export const Layout = ({ children }: PropsWithChildren) => {
@@ -14,6 +15,7 @@ export const Layout = ({ children }: PropsWithChildren) => {
     return (
       <>
         <AnalyticsTracker />
+        <ScrollManager />
         <main>
           <div key={location.pathname} className="page-transition">
             {children}
@@ -26,6 +28,7 @@ export const Layout = ({ children }: PropsWithChildren) => {
   return (
     <>
       <AnalyticsTracker />
+      <ScrollManager />
       <Header />
       <main className="pt-24">
         <div key={location.pathname} className="page-transition">

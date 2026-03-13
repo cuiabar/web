@@ -1,6 +1,14 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { trackContact, trackEvent, trackInitiateCheckout, trackLead, trackPageView, trackViewContent } from '../lib/analytics';
+import {
+  decorateOutboundUrl,
+  trackContact,
+  trackEvent,
+  trackInitiateCheckout,
+  trackLead,
+  trackPageView,
+  trackViewContent,
+} from '../lib/analytics';
 
 const getAnchor = (target: EventTarget | null) => {
   if (!(target instanceof Element)) {
@@ -33,8 +41,24 @@ const classifyInternalPath = (pathname: string) => {
   }
 };
 
+const normalizePathname = (pathname: string) => pathname.replace(/\/+$/, '') || '/';
+
+const getContentName = (pathname: string) => {
+  switch (normalizePathname(pathname)) {
+    case '/burguer':
+      return 'burguer_cuiabar';
+    case '/prorefeicao':
+      return 'prorefeicao';
+    case '/menu':
+      return 'menu_villa_cuiabar';
+    default:
+      return 'site_cuiabar';
+  }
+};
+
 export const AnalyticsTracker = () => {
   const location = useLocation();
+  const normalizedPath = normalizePathname(location.pathname);
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
@@ -47,7 +71,7 @@ export const AnalyticsTracker = () => {
   }, [location.hash, location.pathname, location.search]);
 
   useEffect(() => {
-    switch (location.pathname) {
+    switch (normalizedPath) {
       case '/menu':
         trackViewContent('menu_villa_cuiabar', { content_category: 'menu' });
         break;
@@ -60,7 +84,7 @@ export const AnalyticsTracker = () => {
       default:
         break;
     }
-  }, [location.pathname]);
+  }, [normalizedPath]);
 
   useEffect(() => {
     const handleClick = (event: MouseEvent) => {
@@ -85,10 +109,12 @@ export const AnalyticsTracker = () => {
       }
 
       const label = anchor.textContent?.trim().replace(/\s+/g, ' ').slice(0, 80) || url.pathname;
+      const contentName = getContentName(location.pathname);
       const params = {
         href: url.href,
         label,
         page_path: window.location.pathname,
+        content_name: contentName,
       };
 
       if (url.href.includes('whatsapp.com/channel/')) {
@@ -97,23 +123,47 @@ export const AnalyticsTracker = () => {
       }
 
       if (url.hostname === 'wa.me') {
+        const decoratedUrl = decorateOutboundUrl(url.href, {
+          content_name: contentName,
+          destination: 'whatsapp',
+        });
+
+        anchor.setAttribute('href', decoratedUrl);
         trackContact('whatsapp', params);
         return;
       }
 
       if (url.hostname.includes('expresso.cuiabar.com')) {
+        const decoratedUrl = decorateOutboundUrl(url.href, {
+          content_name: contentName,
+          destination: 'expresso',
+        });
+
+        anchor.setAttribute('href', decoratedUrl);
         trackInitiateCheckout('expresso', params);
         trackEvent('click_order_site', params);
         return;
       }
 
       if (url.hostname.includes('ifood.com.br')) {
+        const decoratedUrl = decorateOutboundUrl(url.href, {
+          content_name: contentName,
+          destination: 'ifood',
+        });
+
+        anchor.setAttribute('href', decoratedUrl);
         trackInitiateCheckout('ifood', params);
         trackEvent('click_order_ifood', params);
         return;
       }
 
       if (url.hostname.includes('99app.com')) {
+        const decoratedUrl = decorateOutboundUrl(url.href, {
+          content_name: contentName,
+          destination: '99food',
+        });
+
+        anchor.setAttribute('href', decoratedUrl);
         trackInitiateCheckout('99food', params);
         trackEvent('click_order_99food', params);
         return;

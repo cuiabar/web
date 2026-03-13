@@ -11,6 +11,7 @@ export const GOOGLE_ADS_ID = 'AW-11311363070';
 export const GOOGLE_TAG_ID = 'GT-5528H7SD';
 export const META_PIXEL_ID = '1385099743118536';
 const META_CONVERSIONS_ENDPOINT = '/api/meta-conversions';
+const ATTRIBUTION_QUERY_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'utm_id', 'fbclid', 'gclid', 'wbraid', 'gbraid'] as const;
 
 type AnalyticsParams = Record<string, string | number | boolean | undefined>;
 type MetaEventPayload = {
@@ -59,6 +60,98 @@ const createEventId = () => {
   }
 
   return `evt_${Date.now()}_${Math.random().toString(16).slice(2)}`;
+};
+
+const getPageContextParams = () => {
+  if (!isBrowser()) {
+    return {};
+  }
+
+  return {
+    page_path: `${window.location.pathname}${window.location.search}${window.location.hash}`,
+    page_location: window.location.href,
+    page_title: document.title,
+  };
+};
+
+const getAttributionParams = () => {
+  if (!isBrowser()) {
+    return {};
+  }
+
+  const searchParams = new URLSearchParams(window.location.search);
+  const attributionParams: Record<string, string> = {};
+
+  for (const key of ATTRIBUTION_QUERY_KEYS) {
+    const value = searchParams.get(key);
+
+    if (value) {
+      attributionParams[key] = value;
+    }
+  }
+
+  const fbp = getCookie('_fbp');
+  const fbc = getFbc();
+
+  if (fbp) {
+    attributionParams.fbp = fbp;
+  }
+
+  if (fbc) {
+    attributionParams.fbc = fbc;
+  }
+
+  return attributionParams;
+};
+
+export const decorateOutboundUrl = (href: string, overrides: AnalyticsParams = {}) => {
+  if (!isBrowser()) {
+    return href;
+  }
+
+  let url: URL;
+
+  try {
+    url = new URL(href, window.location.origin);
+  } catch {
+    return href;
+  }
+
+  const normalizedHostname = url.hostname.replace(/^www\./, '');
+  const isTrackedDestination =
+    normalizedHostname.includes('expresso.cuiabar.com') ||
+    normalizedHostname.includes('ifood.com.br') ||
+    normalizedHostname.includes('99app.com') ||
+    normalizedHostname === 'wa.me';
+
+  if (!isTrackedDestination) {
+    return url.toString();
+  }
+
+  const currentPath = `${window.location.pathname}${window.location.search}`;
+  const contentLabel =
+    typeof overrides.content_name === 'string' && overrides.content_name.trim()
+      ? overrides.content_name.trim()
+      : currentPath;
+
+  const defaultParams: Record<string, string> = {
+    utm_source: 'cuiabar-site',
+    utm_medium: normalizedHostname === 'wa.me' ? 'contact' : 'referral',
+    utm_campaign: normalizedHostname.includes('expresso.cuiabar.com') ? 'pedido-direto' : 'site-navigation',
+    utm_content: contentLabel,
+    ref_page: currentPath,
+    ref_host: window.location.hostname,
+  };
+
+  for (const [key, value] of Object.entries({ ...defaultParams, ...getAttributionParams(), ...overrides })) {
+    if (value === undefined || value === null || value === '') {
+      continue;
+    }
+
+    url.searchParams.set(key, String(value));
+  }
+
+  return url.toString();
 };
 
 const sendMetaServerEvent = ({ eventName, eventId, customData, userData, testEventCode }: MetaEventPayload) => {
@@ -129,13 +222,17 @@ export const trackEvent = (eventName: string, params: AnalyticsParams = {}) => {
   }
 
   const eventId = createEventId();
+  const eventParams = {
+    ...getPageContextParams(),
+    ...params,
+  };
 
-  window.gtag?.('event', eventName, params);
-  window.fbq?.('trackCustom', eventName, params, { eventID: eventId });
+  window.gtag?.('event', eventName, eventParams);
+  window.fbq?.('trackCustom', eventName, eventParams, { eventID: eventId });
   sendMetaServerEvent({
     eventName,
     eventId,
-    customData: params,
+    customData: eventParams,
   });
 };
 
@@ -147,6 +244,7 @@ export const trackLead = (source: string, params: AnalyticsParams = {}) => {
   const eventId = createEventId();
 
   const leadParams = {
+    ...getPageContextParams(),
     lead_source: source,
     ...params,
   };
@@ -168,6 +266,7 @@ export const trackContact = (channel: string, params: AnalyticsParams = {}) => {
   const eventId = createEventId();
 
   const contactParams = {
+    ...getPageContextParams(),
     contact_channel: channel,
     ...params,
   };
@@ -188,6 +287,7 @@ export const trackViewContent = (contentName: string, params: AnalyticsParams = 
 
   const eventId = createEventId();
   const contentParams = {
+    ...getPageContextParams(),
     content_name: contentName,
     ...params,
   };
@@ -208,6 +308,7 @@ export const trackInitiateCheckout = (channel: string, params: AnalyticsParams =
 
   const eventId = createEventId();
   const checkoutParams = {
+    ...getPageContextParams(),
     checkout_channel: channel,
     ...params,
   };
