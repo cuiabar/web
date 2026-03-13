@@ -5,6 +5,8 @@ export const siteConfig = {
   brandShortName: 'Villa Cuiabar',
   city: 'Campinas',
   logoUrl: '/logo-villa-cuiabar.png',
+  burguerBrandName: 'Burger Cuiabar',
+  burguerLogoUrl: '/burguer/logo-burger-cuiabar-transparent.png',
   whatsappNumber: '551933058878',
   whatsappMessage: 'Olá, tudo bem?',
   whatsappChannelUrl: 'https://whatsapp.com/channel/0029VbAcHLXFSAsxCt6lly0a',
