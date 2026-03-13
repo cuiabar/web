@@ -1,11 +1,11 @@
 {
   "siteOrigin": "https://cuiabar.com",
-  "defaultImage": "https://cuiabar.com/logo-villa-cuiabar.png",
+  "defaultImage": "https://cuiabar.com/favicon.png",
   "routes": {
     "/": {
       "title": "Villa Cuiabar | Restaurante em Campinas",
       "description": "Villa Cuiabar em Campinas com delivery no almoço, música ao vivo, menu completo, reservas por WhatsApp e operação corporativa com o ProRefeição.",
-      "image": "https://cuiabar.com/logo-villa-cuiabar.png",
+      "image": "https://cuiabar.com/favicon.png",
       "type": "website",
       "changefreq": "daily",
       "priority": "1.0",
@@ -80,7 +80,7 @@
     "/links": {
       "title": "Cuiabar | Links oficiais",
       "description": "Acesse os links oficiais da Cuiabar: canal no WhatsApp, atendimento, pedidos diretos, vagas e informações do restaurante.",
-      "image": "https://cuiabar.com/logo-villa-cuiabar.png",
+      "image": "https://cuiabar.com/favicon.png",
       "type": "website",
       "changefreq": "weekly",
       "priority": "0.82",
@@ -90,7 +90,7 @@
           "@type": "CollectionPage",
           "name": "Cuiabar | Links oficiais",
           "url": "https://cuiabar.com/links",
-          "description": "Pagina oficial com os principais acessos da Cuiabar para pedidos, atendimento, canal de WhatsApp, vagas e localizacao.",
+          "description": "Página oficial com os principais acessos da Cuiabar para pedidos, atendimento, canal de WhatsApp, vagas e localização.",
           "inLanguage": "pt-BR"
         }
       ]

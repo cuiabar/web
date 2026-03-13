@@ -5,30 +5,32 @@ const MAPS_URL =
   'https://www.google.com/maps/search/?api=1&query=Av.%20Brigadeiro%20Rafael%20Tobias%20de%20Aguiar%2C%201121%20-%20Jardim%20Aurelia%20-%20Campinas%2FSP';
 const JOBS_URL = '/vagas';
 const LIVE_MUSIC_SCHEDULE_HOURS = [
-  'Sexta, sabado e domingo',
-  'Consulte a programacao atual antes de sair',
+  'Sexta, sábado e domingo',
+  'Consulte a programação atual antes de sair',
 ];
 
 export const linksPageConfig = {
   brandName: 'Cuiabar',
   pageEyebrow: 'Links oficiais',
-  headline: 'Escolha seu proximo passo com a Cuiabar.',
-  subheadline: 'Delivery, atendimento, novidades e oportunidades em um so lugar.',
+  headline: 'Escolha seu próximo passo com a Cuiabar.',
+  subheadline: 'Delivery, atendimento, novidades e oportunidades em um só lugar.',
   institutionalIntro:
-    'Uma pagina leve, direta e oficial para chegar rapido ao que importa na marca em Campinas.',
+    'Uma página leve, direta e oficial para chegar rápido ao que importa na marca em Campinas.',
   featuredChannelLabel: 'Canal em destaque',
-  featuredChannelNote: 'Receba promocoes, agenda, novidades da casa e avisos importantes em primeira mao.',
+  featuredChannelNote: 'Receba promoções, agenda, novidades da casa e avisos importantes em primeira mão.',
   whatsappChannelUrl: 'https://whatsapp.com/channel/0029VbAcHLXFSAsxCt6lly0a',
   restaurantWhatsappUrl: 'https://wa.me/551933058878',
   directOrderUrl: 'https://expresso.cuiabar.com',
   jobsUrl: JOBS_URL,
   addressLabel: ADDRESS_LABEL,
   mapsUrl: MAPS_URL,
-  liveMusicScheduleTitle: 'Presencial com musica ao vivo',
-  liveMusicScheduleText: 'Presencial com musica ao vivo - consulte a programacao atual.',
+  liveMusicScheduleTitle: 'Presencial com música ao vivo',
+  liveMusicScheduleText: 'Presencial com música ao vivo — consulte a programação atual.',
+  liveMusicScheduleLabel: 'Horários presenciais',
+  addressCardLabel: 'Endereço',
   liveMusicScheduleHours: LIVE_MUSIC_SCHEDULE_HOURS,
   venueCopy:
-    'Venha viver a experiencia Cuiabar no salao, com ambiente acolhedor, operacao familiar e programacao musical.',
+    'Venha viver a experiência Cuiabar no salão, com ambiente acolhedor, operação familiar e programação musical.',
   footerCopy: 'Cuiabar • Campinas/SP',
   logoUrl: siteConfig.logoUrl,
   links: [
@@ -37,7 +39,7 @@ export const linksPageConfig = {
       emoji: '📣',
       eyebrow: 'Novidades',
       title: 'Entrar no canal do WhatsApp',
-      subtitle: 'Promocoes, avisos, eventos e atualizacoes oficiais.',
+      subtitle: 'Promoções, avisos, eventos e atualizações oficiais.',
       href: 'https://whatsapp.com/channel/0029VbAcHLXFSAsxCt6lly0a',
       isFeatured: true,
     },
@@ -63,8 +65,8 @@ export const linksPageConfig = {
       id: 'live-music',
       emoji: '🎶',
       eyebrow: 'Presencial',
-      title: 'Ver programacao presencial com musica',
-      subtitle: 'Confira o bloco com a agenda e a experiencia no salao.',
+      title: 'Ver programação presencial com música',
+      subtitle: 'Confira o bloco com a agenda e a experiência no salão.',
       href: '#presencial',
       isFeatured: false,
     },
@@ -80,9 +82,9 @@ export const linksPageConfig = {
     {
       id: 'maps',
       emoji: '📍',
-      eyebrow: 'Localizacao',
+      eyebrow: 'Localização',
       title: 'Como chegar',
-      subtitle: 'Abra o endereco no Google Maps.',
+      subtitle: 'Abra o endereço no Google Maps.',
       href: MAPS_URL,
       isFeatured: false,
     },

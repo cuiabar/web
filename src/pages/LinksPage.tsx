@@ -95,7 +95,7 @@ const LinksPage = () => {
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-steel sm:text-[0.98rem]">{linksPageConfig.institutionalIntro}</p>
           <div className="mt-6 flex flex-wrap gap-2">
             <span className="links-chip">🍴 Pedido oficial</span>
-            <span className="links-chip">🎶 Musica ao vivo</span>
+            <span className="links-chip">🎶 Música ao vivo</span>
             <span className="links-chip">💬 Atendimento direto</span>
           </div>
           <p className="mt-6 text-sm font-medium text-cocoa/86 sm:text-[0.96rem]">{linksPageConfig.headline}</p>
@@ -131,7 +131,7 @@ const LinksPage = () => {
 
         <section id="presencial" aria-labelledby="presencial-title" className="mt-6">
           <div className="links-surface rounded-[2rem] px-5 py-6 sm:px-8 sm:py-8">
-            <p className="text-[0.72rem] uppercase tracking-[0.28em] text-terracotta/85">Presenca fisica</p>
+            <p className="text-[0.72rem] uppercase tracking-[0.28em] text-terracotta/85">Presença física</p>
             <div className="mt-4 grid gap-6 sm:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
               <div>
                 <h2 id="presencial-title" className="font-heading text-[2rem] leading-tight text-cocoa sm:text-[2.45rem]">
@@ -142,7 +142,7 @@ const LinksPage = () => {
               </div>
               <div className="grid gap-4">
                 <article className="rounded-[1.5rem] border border-cocoa/10 bg-white/70 px-4 py-4">
-                  <p className="text-[0.68rem] uppercase tracking-[0.24em] text-steel/80">Horario editavel</p>
+                  <p className="text-[0.68rem] uppercase tracking-[0.24em] text-steel/80">{linksPageConfig.liveMusicScheduleLabel}</p>
                   <div className="mt-3 space-y-2 text-sm leading-relaxed text-cocoa sm:text-[0.95rem]">
                     {linksPageConfig.liveMusicScheduleHours.map((line) => (
                       <p key={line}>{line}</p>
@@ -150,7 +150,7 @@ const LinksPage = () => {
                   </div>
                 </article>
                 <article className="rounded-[1.5rem] border border-cocoa/10 bg-white/70 px-4 py-4">
-                  <p className="text-[0.68rem] uppercase tracking-[0.24em] text-steel/80">Endereco</p>
+                  <p className="text-[0.68rem] uppercase tracking-[0.24em] text-steel/80">{linksPageConfig.addressCardLabel}</p>
                   <a
                     href={linksPageConfig.mapsUrl}
                     className="mt-3 inline-flex text-sm leading-relaxed text-cocoa transition hover:text-terracotta focus-visible:text-terracotta sm:text-[0.95rem]"
