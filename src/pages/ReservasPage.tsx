@@ -1,16 +1,14 @@
 import { WhatsAppContactCard } from '../components/WhatsAppContactCard';
 import { Reveal } from '../components/Reveal';
 import { reservationFaqs } from '../data/content';
+import { getRouteSeo } from '../data/seo';
 import { siteConfig } from '../data/siteConfig';
 import { useSeo } from '../hooks/useSeo';
 
 const ReservasPage = () => {
   const reservationHref = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`;
 
-  useSeo({
-    title: 'Reservas | Villa Cuiabar | Campinas',
-    description: 'Reservas e atendimento do Villa Cuiabar feitos diretamente pelo WhatsApp.',
-  });
+  useSeo(getRouteSeo('/reservas'));
 
   return (
     <section className="container-shell space-y-10 py-14">

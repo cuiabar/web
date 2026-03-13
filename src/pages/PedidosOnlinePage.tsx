@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Reveal } from '../components/Reveal';
 import { menuHighlights } from '../data/content';
+import { getRouteSeo } from '../data/seo';
 import { siteConfig } from '../data/siteConfig';
 import { useSeo } from '../hooks/useSeo';
 
@@ -12,10 +13,7 @@ const channels = [
 ];
 
 const PedidosOnlinePage = () => {
-  useSeo({
-    title: 'Pedidos Online | Villa Cuiabar | Campinas',
-    description: 'Faça seu pedido pelos canais oficiais do Villa Cuiabar.',
-  });
+  useSeo(getRouteSeo('/pedidos-online'));
 
   return (
     <section className="container-shell space-y-10 py-14">

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Reveal } from '../components/Reveal';
+import { getRouteSeo } from '../data/seo';
 import { siteConfig } from '../data/siteConfig';
 import { useSeo } from '../hooks/useSeo';
 
@@ -75,10 +76,7 @@ const floatingEmojis = [
 const BurguerCuiabarPage = () => {
   const [showLoader, setShowLoader] = useState(true);
 
-  useSeo({
-    title: 'Burguer Cuiabar | Villa Cuiabar | Campinas',
-    description: 'Peça burgers, fritas e combos do Villa Cuiabar pelo site, iFood ou WhatsApp.',
-  });
+  useSeo(getRouteSeo('/burguer'));
 
   useEffect(() => {
     if (typeof window === 'undefined') {

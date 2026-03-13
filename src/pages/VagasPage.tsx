@@ -1,4 +1,5 @@
 import { Reveal } from '../components/Reveal';
+import { getRouteSeo } from '../data/seo';
 import { useSeo } from '../hooks/useSeo';
 
 const vacancies = [
@@ -23,10 +24,7 @@ const vacancies = [
 ];
 
 const VagasPage = () => {
-  useSeo({
-    title: 'Vagas | Villa Cuiabar | Campinas',
-    description: 'Confira as vagas abertas no Villa Cuiabar e envie sua candidatura pelo formulário oficial.',
-  });
+  useSeo(getRouteSeo('/vagas'));
 
   return (
     <section className="container-shell space-y-10 py-14">

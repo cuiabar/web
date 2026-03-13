@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Reveal } from '../components/Reveal';
 import { SectionHeading } from '../components/SectionHeading';
 import { menuSectionEmojis, menuSections, menuSectionsWithImages } from '../data/menu';
+import { getRouteSeo } from '../data/seo';
 import type { MenuSection } from '../data/types';
 import { siteConfig } from '../data/siteConfig';
 import { useSeo } from '../hooks/useSeo';
@@ -79,10 +80,7 @@ const groupedMenuSections = menuSectionGroups.map((group) => ({
 }));
 
 const MenuPage = () => {
-  useSeo({
-    title: 'Menu | Villa Cuiabar | Campinas',
-    description: 'Cardápio completo do Villa Cuiabar com petiscos, pratos, drinks, cervejas, saladas e complementos.',
-  });
+  useSeo(getRouteSeo('/menu'));
 
   return (
     <section className="container-shell space-y-10 py-14">

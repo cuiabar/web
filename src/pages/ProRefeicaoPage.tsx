@@ -1,4 +1,5 @@
 import { Reveal } from '../components/Reveal';
+import { getRouteSeo } from '../data/seo';
 import { siteConfig } from '../data/siteConfig';
 import { useSeo } from '../hooks/useSeo';
 
@@ -79,10 +80,7 @@ const showcaseMeals = [
 const ProRefeicaoPage = () => {
   const commercialHref = `https://wa.me/${siteConfig.commercialWhatsappNumber}?text=${encodeURIComponent(siteConfig.commercialWhatsappMessage)}`;
 
-  useSeo({
-    title: 'ProRefeição | Villa Cuiabar | Campinas',
-    description: 'Solução de refeição corporativa do Villa Cuiabar para empresas, clínicas, obras e operações recorrentes em Campinas.',
-  });
+  useSeo(getRouteSeo('/prorefeicao'));
 
   return (
     <section className="container-shell space-y-12 py-14">

@@ -1,0 +1,170 @@
+{
+  "siteOrigin": "https://cuiabar.com",
+  "defaultImage": "https://cuiabar.com/logo-villa-cuiabar.png",
+  "routes": {
+    "/": {
+      "title": "Villa Cuiabar | Restaurante em Campinas",
+      "description": "Villa Cuiabar em Campinas com delivery no almoço, música ao vivo, menu completo, reservas por WhatsApp e operação corporativa com o ProRefeição.",
+      "image": "https://cuiabar.com/logo-villa-cuiabar.png",
+      "type": "website",
+      "changefreq": "daily",
+      "priority": "1.0",
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "name": "Villa Cuiabar",
+          "url": "https://cuiabar.com/",
+          "image": "https://cuiabar.com/logo-villa-cuiabar.png",
+          "telephone": "+55 19 3305-8878",
+          "email": "cuiabar@cuiabar.net",
+          "servesCuisine": ["Brasileira", "Mato-grossense", "Hambúrgueres"],
+          "priceRange": "$$",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Av. Brigadeiro Rafael Tobias de Aguiar, 1121 - Jardim Aurélia",
+            "addressLocality": "Campinas",
+            "addressRegion": "SP",
+            "addressCountry": "BR"
+          },
+          "sameAs": [
+            "https://instagram.com/cuiabar",
+            "https://facebook.com/villacuiabar",
+            "https://whatsapp.com/channel/0029VbAcHLXFSAsxCt6lly0a"
+          ],
+          "hasMenu": "https://cuiabar.com/menu"
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Villa Cuiabar",
+          "url": "https://cuiabar.com/"
+        }
+      ]
+    },
+    "/menu": {
+      "title": "Menu | Villa Cuiabar | Campinas",
+      "description": "Cardápio completo do Villa Cuiabar com porções, pratos, burgers, bebidas, drinks, cervejas, saladas e complementos em Campinas.",
+      "image": "https://cuiabar.com/menu/bife-chorizo.png",
+      "type": "article",
+      "changefreq": "weekly",
+      "priority": "0.95",
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Menu",
+          "name": "Menu Villa Cuiabar",
+          "description": "Cardápio completo do Villa Cuiabar com porções, pratos e bebidas.",
+          "url": "https://cuiabar.com/menu",
+          "inLanguage": "pt-BR"
+        }
+      ]
+    },
+    "/burguer": {
+      "title": "Burguer Cuiabar | Burgers e Combos em Campinas",
+      "description": "Peça burgers, fritas e combos do Burger Cuiabar pelo site oficial, iFood ou WhatsApp em Campinas.",
+      "image": "https://cuiabar.com/burguer/capa-burger-cuiabar.png",
+      "type": "article",
+      "changefreq": "weekly",
+      "priority": "0.9",
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Menu",
+          "name": "Burger Cuiabar",
+          "description": "Linha de burgers, fritas e combos do Villa Cuiabar.",
+          "url": "https://cuiabar.com/burguer",
+          "inLanguage": "pt-BR"
+        }
+      ]
+    },
+    "/prorefeicao": {
+      "title": "ProRefeição | Refeição Corporativa em Campinas",
+      "description": "Solução de refeição corporativa do Villa Cuiabar para empresas, clínicas, indústrias, obras e operações recorrentes em Campinas.",
+      "image": "https://cuiabar.com/prorefeicao/hero-parmegiana.png",
+      "type": "article",
+      "changefreq": "weekly",
+      "priority": "0.85",
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "ProRefeição",
+          "serviceType": "Refeição corporativa",
+          "provider": {
+            "@type": "Organization",
+            "name": "Villa Cuiabar"
+          },
+          "areaServed": {
+            "@type": "City",
+            "name": "Campinas"
+          },
+          "url": "https://cuiabar.com/prorefeicao",
+          "description": "Atendimento de refeição corporativa para empresas e operações recorrentes."
+        }
+      ]
+    },
+    "/reservas": {
+      "title": "Reservas | Villa Cuiabar | Campinas",
+      "description": "Faça sua reserva no Villa Cuiabar pelo WhatsApp para mesas, aniversários, grupos e atendimento presencial em Campinas.",
+      "image": "https://cuiabar.com/logo-villa-cuiabar.png",
+      "type": "website",
+      "changefreq": "monthly",
+      "priority": "0.8",
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "name": "Reservas Villa Cuiabar",
+          "url": "https://cuiabar.com/reservas",
+          "description": "Página de reservas e atendimento via WhatsApp do Villa Cuiabar."
+        }
+      ]
+    },
+    "/vagas": {
+      "title": "Vagas | Villa Cuiabar | Campinas",
+      "description": "Confira vagas abertas no Villa Cuiabar e envie sua candidatura online para atendimento, copa e limpeza.",
+      "image": "https://cuiabar.com/vagas/garcom-atendente.jpg",
+      "type": "website",
+      "changefreq": "weekly",
+      "priority": "0.7",
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Vagas abertas no Villa Cuiabar",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Garçom / Atendente"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Copa / Auxiliar de Limpeza"
+            }
+          ],
+          "url": "https://cuiabar.com/vagas"
+        }
+      ]
+    },
+    "/pedidos-online": {
+      "title": "Pedidos Online | Villa Cuiabar | Campinas",
+      "description": "Acesse os canais oficiais de pedidos do Villa Cuiabar, incluindo site próprio, iFood, 99Food e WhatsApp.",
+      "image": "https://cuiabar.com/logo-villa-cuiabar.png",
+      "type": "website",
+      "changefreq": "monthly",
+      "priority": "0.75",
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "name": "Pedidos Online Villa Cuiabar",
+          "url": "https://cuiabar.com/pedidos-online",
+          "description": "Canais oficiais para pedidos online do Villa Cuiabar."
+        }
+      ]
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import { GoogleCalendarEmbed } from '../components/GoogleCalendarEmbed';
 import { WhatsAppChannelPopup } from '../components/WhatsAppChannelPopup';
+import { getRouteSeo } from '../data/seo';
 import { WhatsAppContactCard } from '../components/WhatsAppContactCard';
 import { DifferentialsSection } from '../sections/DifferentialsSection';
 import { HeroSection } from '../sections/HeroSection';
@@ -11,11 +12,7 @@ import { useSeo } from '../hooks/useSeo';
 const HomePage = () => {
   const reservationHref = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`;
 
-  useSeo({
-    title: 'Villa Cuiabar | Campinas',
-    description:
-      'Delivery no almoço todos os dias, noites com música ao vivo e operação corporativa no Jardim Aurélia, em Campinas.',
-  });
+  useSeo(getRouteSeo('/'));
 
   return (
     <>
