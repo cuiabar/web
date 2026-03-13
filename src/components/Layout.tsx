@@ -7,6 +7,21 @@ import { WhatsAppFloatingButton } from './WhatsAppFloatingButton';
 
 export const Layout = ({ children }: PropsWithChildren) => {
   const location = useLocation();
+  const normalizedPath = location.pathname.replace(/\/+$/, '') || '/';
+  const isLinksRoute = ['/links', '/bio', '/acessos'].includes(normalizedPath);
+
+  if (isLinksRoute) {
+    return (
+      <>
+        <AnalyticsTracker />
+        <main>
+          <div key={location.pathname} className="page-transition">
+            {children}
+          </div>
+        </main>
+      </>
+    );
+  }
 
   return (
     <>

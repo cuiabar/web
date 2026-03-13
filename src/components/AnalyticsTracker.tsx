@@ -11,7 +11,11 @@ const getAnchor = (target: EventTarget | null) => {
 };
 
 const classifyInternalPath = (pathname: string) => {
-  switch (pathname) {
+  const normalizedPath = pathname.replace(/\/+$/, '') || '/';
+
+  switch (normalizedPath) {
+    case '/links':
+      return { eventName: 'open_links_page' };
     case '/menu':
       return { eventName: 'open_menu_page' };
     case '/pesquisa':

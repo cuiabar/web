@@ -10,6 +10,7 @@ const PesquisaPage = lazy(() => import('../pages/PesquisaPage'));
 const ReservasPage = lazy(() => import('../pages/ReservasPage'));
 const VagasPage = lazy(() => import('../pages/VagasPage'));
 const BurguerCuiabarPage = lazy(() => import('../pages/BurguerCuiabarPage'));
+const LinksPage = lazy(() => import('../pages/LinksPage'));
 
 export const App = () => (
   <Suspense fallback={<div className="container-shell py-24">Carregando Villa Cuiabar...</div>}>
@@ -17,8 +18,11 @@ export const App = () => (
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/blog" element={<Navigate to="/" replace />} />
+        <Route path="/bio" element={<Navigate to="/links" replace />} />
+        <Route path="/acessos" element={<Navigate to="/links" replace />} />
         <Route path="/burguer-cuiabar" element={<Navigate to="/burguer" replace />} />
         <Route path="/burguer" element={<BurguerCuiabarPage />} />
+        <Route path="/links" element={<LinksPage />} />
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/prorefeicao" element={<ProRefeicaoPage />} />
         <Route path="/pedidos-online" element={<PedidosOnlinePage />} />

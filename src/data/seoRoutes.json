@@ -77,6 +77,24 @@
         }
       ]
     },
+    "/links": {
+      "title": "Cuiabar | Links oficiais",
+      "description": "Acesse os links oficiais da Cuiabar: canal no WhatsApp, atendimento, pedidos diretos, vagas e informações do restaurante.",
+      "image": "https://cuiabar.com/logo-villa-cuiabar.png",
+      "type": "website",
+      "changefreq": "weekly",
+      "priority": "0.82",
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Cuiabar | Links oficiais",
+          "url": "https://cuiabar.com/links",
+          "description": "Pagina oficial com os principais acessos da Cuiabar para pedidos, atendimento, canal de WhatsApp, vagas e localizacao.",
+          "inLanguage": "pt-BR"
+        }
+      ]
+    },
     "/burguer": {
       "title": "Burguer Cuiabar | Burgers e Combos em Campinas",
       "description": "Peça burgers, fritas e combos do Burger Cuiabar pelo site oficial, iFood ou WhatsApp em Campinas.",
