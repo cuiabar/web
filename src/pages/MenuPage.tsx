@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Reveal } from '../components/Reveal';
 import { SectionHeading } from '../components/SectionHeading';
-import { menuSectionEmojis, menuSections, menuSectionsWithImages } from '../data/menu';
+import { menuSectionEmojis, menuSections } from '../data/menu';
 import { getRouteSeo } from '../data/seo';
 import type { MenuSection } from '../data/types';
 import { siteConfig } from '../data/siteConfig';
@@ -18,12 +18,6 @@ const slugify = (value: string) =>
 const totalItems = menuSections.reduce((sum, section) => sum + section.items.length, 0);
 
 const formatDescription = (value: string) => value.replace(/^"|"$/g, '');
-
-const highResolutionMenuImages = new Set([
-  '/menu/bife-chorizo.png',
-  '/menu/costela-cuiabar.png',
-  '/menu/parchicken.png',
-]);
 
 const menuSectionGroups: Array<{
   id: string;
@@ -79,6 +73,8 @@ const groupedMenuSections = menuSectionGroups.map((group) => ({
     .filter((section): section is MenuSection => Boolean(section)),
 }));
 
+const formatVariantLine = (name: string, price: string) => (name === '-' ? price : `${name} · ${price}`);
+
 const MenuPage = () => {
   useSeo(getRouteSeo('/menu'));
 
@@ -87,8 +83,8 @@ const MenuPage = () => {
       <Reveal as="header" className="card p-8">
         <SectionHeading
           eyebrow="Menu 2025"
-          title="Cardápio completo do Villa Cuiabar, agora dentro do site"
-          description="Cópia local do menu com 20 seções e 124 itens, para o cliente consultar tudo sem depender do site antigo."
+          title="Cardápio completo"
+          description="Lista direta por categoria, com leitura rápida para ver produtos, descrições e preços."
         />
         <div className="mt-6 flex flex-wrap gap-3">
           <a href={siteConfig.orderLinks.direct} target="_blank" rel="noreferrer" className="btn-primary">
@@ -99,7 +95,7 @@ const MenuPage = () => {
           </Link>
         </div>
         <p className="mt-4 text-sm text-steel">
-          {menuSections.length} seções organizadas com {totalItems} itens para almoço, jantar, petiscos, bebidas e complementos.
+          {menuSections.length} seções e {totalItems} itens entre porções, pratos, bebidas e complementos.
         </p>
       </Reveal>
 
@@ -122,69 +118,63 @@ const MenuPage = () => {
       <div className="space-y-6">
         {groupedMenuSections.map((group, groupIndex) => (
           <Reveal key={group.id} as="section" id={group.id} delay={groupIndex * 90} className="space-y-6 scroll-mt-28">
-            <div className="card p-6 sm:p-8">
+            <div className="card p-6 sm:p-7">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-terracotta">{group.emoji} Categoria</p>
-              <h2 className="mt-2 font-heading text-4xl text-cocoa sm:text-5xl">{group.label}</h2>
-              <p className="mt-3 max-w-3xl text-steel">{group.description}</p>
+              <div className="mt-2 flex flex-wrap items-end justify-between gap-3">
+                <div>
+                  <h2 className="font-heading text-3xl text-cocoa sm:text-4xl">{group.label}</h2>
+                  <p className="mt-2 max-w-3xl text-sm text-steel sm:text-base">{group.description}</p>
+                </div>
+                <p className="text-sm font-medium text-steel">{group.sections.reduce((sum, section) => sum + section.items.length, 0)} itens</p>
+              </div>
             </div>
 
             {group.sections.map((section) => {
-              const showImages = menuSectionsWithImages.has(section.name);
-
               return (
-                <section key={section.name} id={slugify(section.name)} className="card p-6 sm:p-8">
-                  <div className="flex flex-wrap items-start justify-between gap-4">
-                    <div className="max-w-3xl">
-                      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-terracotta">
-                        {menuSectionEmojis[section.name] ?? '🍽️'} Seção
-                      </p>
-                      <h3 className="mt-2 font-heading text-3xl text-cocoa sm:text-4xl">{section.name}</h3>
-                      {section.description ? <p className="mt-3 text-steel">{formatDescription(section.description)}</p> : null}
-                    </div>
-                    <div className="rounded-full bg-cream px-4 py-2 text-sm font-semibold text-cocoa">
-                      {section.items.length} itens
+                <section key={section.name} id={slugify(section.name)} className="card overflow-hidden">
+                  <div className="border-b border-sand/70 px-5 py-5 sm:px-7">
+                    <div className="flex flex-wrap items-start justify-between gap-4">
+                      <div className="max-w-3xl">
+                        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-terracotta">
+                          {menuSectionEmojis[section.name] ?? '🍽️'} Seção
+                        </p>
+                        <h3 className="mt-2 font-heading text-2xl text-cocoa sm:text-3xl">{section.name}</h3>
+                        {section.description ? <p className="mt-2 text-sm text-steel sm:text-base">{formatDescription(section.description)}</p> : null}
+                      </div>
+                      <div className="rounded-full bg-cream px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-cocoa">
+                        {section.items.length} itens
+                      </div>
                     </div>
                   </div>
 
-                  <div className="mt-8 grid gap-4 xl:grid-cols-2">
+                  <ul className="divide-y divide-sand/60">
                     {section.items.map((item) => (
-                      <article key={`${section.name}-${item.name}-${item.description}`} className="rounded-3xl border border-sand/50 bg-white p-4 shadow-soft">
-                        <div className="flex items-start gap-4">
+                      <li key={`${section.name}-${item.name}-${item.description}`} className="px-5 py-4 sm:px-7">
+                        <div className="flex items-start justify-between gap-4">
                           <div className="min-w-0 flex-1">
-                            <div className="flex items-start justify-between gap-3">
-                              <div>
-                                <h4 className="font-heading text-2xl text-cocoa">{item.name}</h4>
-                                {item.description ? (
-                                  <p className="mt-2 text-sm leading-relaxed text-steel">{formatDescription(item.description)}</p>
-                                ) : null}
-                              </div>
-                              {item.price ? <p className="text-sm font-semibold text-terracotta">{item.price}</p> : null}
+                            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                              <h4 className="font-semibold text-cocoa sm:text-lg">{item.name}</h4>
+                              {item.description ? (
+                                <p className="text-sm leading-relaxed text-steel">{formatDescription(item.description)}</p>
+                              ) : null}
                             </div>
 
                             {item.variants.length ? (
-                              <ul className="mt-4 space-y-2 text-sm text-steel">
+                              <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-steel">
                                 {item.variants.map((variant) => (
-                                  <li key={`${item.name}-${variant.name}`} className="flex items-center justify-between gap-3 rounded-2xl bg-cream/70 px-3 py-2">
-                                    <span>{variant.name}</span>
-                                    <span className="font-semibold text-cocoa">{variant.price}</span>
+                                  <li key={`${item.name}-${variant.name}`} className="before:mr-2 before:text-terracotta before:content-['•']">
+                                    <span className="font-medium text-cocoa">{formatVariantLine(variant.name, variant.price)}</span>
                                   </li>
                                 ))}
                               </ul>
                             ) : null}
                           </div>
 
-                          {showImages && item.image && highResolutionMenuImages.has(item.image) ? (
-                            <img
-                              src={item.image}
-                              alt={item.name}
-                              loading="lazy"
-                              className="h-16 w-16 rounded-2xl border border-sand/50 object-cover sm:h-20 sm:w-20"
-                            />
-                          ) : null}
+                          {item.price ? <p className="shrink-0 text-sm font-semibold text-terracotta sm:text-base">{item.price}</p> : null}
                         </div>
-                      </article>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </section>
               );
             })}
