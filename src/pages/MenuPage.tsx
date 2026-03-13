@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Reveal } from '../components/Reveal';
 import { SectionHeading } from '../components/SectionHeading';
@@ -75,8 +76,30 @@ const groupedMenuSections = menuSectionGroups.map((group) => ({
 
 const formatVariantLine = (name: string, price: string) => (name === '-' ? price : `${name} · ${price}`);
 
+const createSectionKey = (groupId: string, sectionName: string) => `${groupId}:${sectionName}`;
+
 const MenuPage = () => {
   useSeo(getRouteSeo('/menu'));
+  const [openSections, setOpenSections] = useState<Set<string>>(
+    () =>
+      new Set(
+        groupedMenuSections.flatMap((group) => group.sections.slice(0, 1).map((section) => createSectionKey(group.id, section.name))),
+      ),
+  );
+
+  const toggleSection = (sectionKey: string) => {
+    setOpenSections((current) => {
+      const next = new Set(current);
+
+      if (next.has(sectionKey)) {
+        next.delete(sectionKey);
+      } else {
+        next.add(sectionKey);
+      }
+
+      return next;
+    });
+  };
 
   return (
     <section className="container-shell space-y-10 py-14">
@@ -130,51 +153,70 @@ const MenuPage = () => {
             </div>
 
             {group.sections.map((section) => {
+              const sectionKey = createSectionKey(group.id, section.name);
+              const isOpen = openSections.has(sectionKey);
+
               return (
                 <section key={section.name} id={slugify(section.name)} className="card overflow-hidden">
-                  <div className="border-b border-sand/70 px-5 py-5 sm:px-7">
-                    <div className="flex flex-wrap items-start justify-between gap-4">
-                      <div className="max-w-3xl">
-                        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-terracotta">
-                          {menuSectionEmojis[section.name] ?? '🍽️'} Seção
-                        </p>
-                        <h3 className="mt-2 font-heading text-2xl text-cocoa sm:text-3xl">{section.name}</h3>
-                        {section.description ? <p className="mt-2 text-sm text-steel sm:text-base">{formatDescription(section.description)}</p> : null}
-                      </div>
+                  <button
+                    type="button"
+                    className="flex w-full items-start justify-between gap-4 border-b border-sand/70 px-5 py-5 text-left transition hover:bg-cream/40 sm:px-7"
+                    onClick={() => toggleSection(sectionKey)}
+                    aria-expanded={isOpen}
+                    aria-controls={`${slugify(section.name)}-content`}
+                  >
+                    <div className="max-w-3xl">
+                      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-terracotta">
+                        {menuSectionEmojis[section.name] ?? '🍽️'} Seção
+                      </p>
+                      <h3 className="mt-2 font-heading text-2xl text-cocoa sm:text-3xl">{section.name}</h3>
+                      {section.description ? <p className="mt-2 text-sm text-steel sm:text-base">{formatDescription(section.description)}</p> : null}
+                    </div>
+                    <div className="flex shrink-0 items-center gap-3">
                       <div className="rounded-full bg-cream px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-cocoa">
                         {section.items.length} itens
                       </div>
+                      <span
+                        aria-hidden="true"
+                        className={`inline-flex h-9 w-9 items-center justify-center rounded-full border border-sand/70 bg-white text-cocoa transition ${
+                          isOpen ? 'rotate-45' : ''
+                        }`}
+                      >
+                        +
+                      </span>
                     </div>
-                  </div>
+                  </button>
 
-                  <ul className="divide-y divide-sand/60">
-                    {section.items.map((item) => (
-                      <li key={`${section.name}-${item.name}-${item.description}`} className="px-5 py-4 sm:px-7">
-                        <div className="flex items-start justify-between gap-4">
-                          <div className="min-w-0 flex-1">
-                            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                              <h4 className="font-semibold text-cocoa sm:text-lg">{item.name}</h4>
-                              {item.description ? (
-                                <p className="text-sm leading-relaxed text-steel">{formatDescription(item.description)}</p>
+                  {isOpen ? (
+                    <ul id={`${slugify(section.name)}-content`} className="divide-y divide-sand/60">
+                      {section.items.map((item) => (
+                        <li key={`${section.name}-${item.name}-${item.description}`} className="px-5 py-4 sm:px-7">
+                          <div className="flex items-start justify-between gap-4">
+                            <div className="min-w-0 flex-1">
+                              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                                <h4 className="font-semibold text-cocoa sm:text-lg">{item.name}</h4>
+                                {item.description ? (
+                                  <p className="text-sm leading-relaxed text-steel">{formatDescription(item.description)}</p>
+                                ) : null}
+                              </div>
+
+                              {item.variants.length ? (
+                                <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-steel">
+                                  {item.variants.map((variant) => (
+                                    <li key={`${item.name}-${variant.name}`} className="before:mr-2 before:text-terracotta before:content-['•']">
+                                      <span className="font-medium text-cocoa">{formatVariantLine(variant.name, variant.price)}</span>
+                                    </li>
+                                  ))}
+                                </ul>
                               ) : null}
                             </div>
 
-                            {item.variants.length ? (
-                              <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-steel">
-                                {item.variants.map((variant) => (
-                                  <li key={`${item.name}-${variant.name}`} className="before:mr-2 before:text-terracotta before:content-['•']">
-                                    <span className="font-medium text-cocoa">{formatVariantLine(variant.name, variant.price)}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            ) : null}
+                            {item.price ? <p className="shrink-0 text-sm font-semibold text-terracotta sm:text-base">{item.price}</p> : null}
                           </div>
-
-                          {item.price ? <p className="shrink-0 text-sm font-semibold text-terracotta sm:text-base">{item.price}</p> : null}
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
                 </section>
               );
             })}
