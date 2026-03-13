@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { trackContact, trackEvent, trackLead, trackPageView } from '../lib/analytics';
+import { trackContact, trackEvent, trackInitiateCheckout, trackLead, trackPageView, trackViewContent } from '../lib/analytics';
 
 const getAnchor = (target: EventTarget | null) => {
   if (!(target instanceof Element)) {
@@ -43,6 +43,22 @@ export const AnalyticsTracker = () => {
   }, [location.hash, location.pathname, location.search]);
 
   useEffect(() => {
+    switch (location.pathname) {
+      case '/menu':
+        trackViewContent('menu_villa_cuiabar', { content_category: 'menu' });
+        break;
+      case '/burguer':
+        trackViewContent('burguer_cuiabar', { content_category: 'burguer' });
+        break;
+      case '/prorefeicao':
+        trackViewContent('prorefeicao', { content_category: 'corporativo' });
+        break;
+      default:
+        break;
+    }
+  }, [location.pathname]);
+
+  useEffect(() => {
     const handleClick = (event: MouseEvent) => {
       const anchor = getAnchor(event.target);
 
@@ -82,16 +98,19 @@ export const AnalyticsTracker = () => {
       }
 
       if (url.hostname.includes('expresso.cuiabar.com')) {
+        trackInitiateCheckout('expresso', params);
         trackEvent('click_order_site', params);
         return;
       }
 
       if (url.hostname.includes('ifood.com.br')) {
+        trackInitiateCheckout('ifood', params);
         trackEvent('click_order_ifood', params);
         return;
       }
 
       if (url.hostname.includes('99app.com')) {
+        trackInitiateCheckout('99food', params);
         trackEvent('click_order_99food', params);
         return;
       }
