@@ -96,8 +96,8 @@
       ]
     },
     "/burguer": {
-      "title": "Burguer Cuiabar | Burgers e Combos em Campinas",
-      "description": "Peça burgers, fritas e combos do Burger Cuiabar pelo site oficial, iFood ou WhatsApp em Campinas.",
+      "title": "Burguer Cuiabar | Cardápio piloto em Campinas",
+      "description": "Cardápio oficial do Burguer Cuiabar com lanches e combos. Projeto piloto da house Cuiabar com pedido pelo site, iFood e WhatsApp em Campinas.",
       "image": "https://cuiabar.com/burguer/capa-burger-cuiabar.png",
       "type": "article",
       "changefreq": "weekly",
@@ -107,7 +107,7 @@
           "@context": "https://schema.org",
           "@type": "Menu",
           "name": "Burger Cuiabar",
-          "description": "Linha de burgers, fritas e combos do Villa Cuiabar.",
+          "description": "Projeto piloto do Cuiabar com linha de burgers e combos.",
           "url": "https://cuiabar.com/burguer",
           "inLanguage": "pt-BR"
         }
