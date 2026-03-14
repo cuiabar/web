@@ -13,6 +13,15 @@ const vacancies = [
     buttonLabel: 'Candidatar-se para Garçom / Atendente',
   },
   {
+    title: 'Aux. Cozinha',
+    image: '/vagas/copa-aux-limpeza.jpg',
+    description:
+      'Vaga para apoio à cozinha, preparo inicial, organização da praça e suporte à rotina operacional com atenção e agilidade.',
+    points: ['Apoio à cozinha e organização da operação', 'Suporte ao preparo e rotina interna da casa', 'Preenchimento da candidatura pelo formulário online'],
+    link: 'https://form.jotform.com/260393456143053',
+    buttonLabel: 'Candidatar-se para Aux. Cozinha',
+  },
+  {
     title: 'Copa / Aux. Limpeza',
     image: '/vagas/copa-aux-limpeza.jpg',
     description:
@@ -52,7 +61,7 @@ const VagasPage = () => {
         </div>
       </Reveal>
 
-      <div className="grid gap-6 xl:grid-cols-2">
+      <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
         {vacancies.map((vacancy, index) => (
           <Reveal key={vacancy.title} as="article" delay={index * 90} className="card overflow-hidden p-0">
             <img src={vacancy.image} alt={vacancy.title} loading="lazy" className="media-lift h-64 w-full object-cover" />
