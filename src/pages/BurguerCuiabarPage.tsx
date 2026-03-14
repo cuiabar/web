@@ -95,6 +95,12 @@ const orderChannels = [
   },
 ];
 
+const IllustrativePhotoBadge = () => (
+  <span className="absolute bottom-3 right-3 rounded-full border border-white/45 bg-[#2e0501]/72 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-white backdrop-blur">
+    Foto ilustrativa
+  </span>
+);
+
 const BurguerCuiabarPage = () => {
   useSeo(getRouteSeo('/burguer'));
 
@@ -179,7 +185,10 @@ const BurguerCuiabarPage = () => {
 
             <div className="grid gap-4 sm:grid-cols-2">
               <Reveal delay={80} className="rounded-[2rem] border border-white/60 bg-white/78 p-4 shadow-[0_28px_70px_-42px_rgba(46,5,1,0.34)]">
-                <img src="/burguer/burger-classico.png" alt="Burger Cuiabar clássico" loading="eager" className="h-56 w-full rounded-[1.5rem] object-cover" />
+                <div className="relative">
+                  <img src="/burguer/burger-classico.png" alt="Burger Cuiabar clássico" loading="eager" className="h-56 w-full rounded-[1.5rem] object-cover" />
+                  <IllustrativePhotoBadge />
+                </div>
                 <div className="mt-4 rounded-[1.3rem] bg-[#fffbd6] px-4 py-3">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#7e8427]">Picanha Clássico</p>
                   <p className="mt-2 text-sm leading-relaxed text-[#6c4336]">Pão brioche, picanha 120g, mussarela, alface, tomate e baconnese da casa.</p>
@@ -187,7 +196,10 @@ const BurguerCuiabarPage = () => {
               </Reveal>
 
               <Reveal delay={130} className="rounded-[2rem] border border-white/60 bg-white/78 p-4 shadow-[0_28px_70px_-42px_rgba(46,5,1,0.34)] sm:translate-y-8">
-                <img src="/burguer/burger-bacon.png" alt="Burger Cuiabar com bacon" loading="eager" className="h-56 w-full rounded-[1.5rem] object-cover" />
+                <div className="relative">
+                  <img src="/burguer/burger-bacon.png" alt="Burger Cuiabar com bacon" loading="eager" className="h-56 w-full rounded-[1.5rem] object-cover" />
+                  <IllustrativePhotoBadge />
+                </div>
                 <div className="mt-4 rounded-[1.3rem] bg-[#fffbd6] px-4 py-3">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#7e8427]">Picanha Bacon</p>
                   <p className="mt-2 text-sm leading-relaxed text-[#6c4336]">Cheddar cremoso, bacon crocante, cebola na manteiga e baconnese para um sabor mais intenso.</p>
@@ -195,7 +207,10 @@ const BurguerCuiabarPage = () => {
               </Reveal>
 
               <Reveal delay={180} className="rounded-[2rem] border border-white/60 bg-white/78 p-4 shadow-[0_28px_70px_-42px_rgba(46,5,1,0.34)] sm:col-span-2">
-                <img src="/burguer/combo-frita-bebida.png" alt="Combo do Burger Cuiabar com fritas e bebida" loading="lazy" className="h-64 w-full rounded-[1.6rem] object-cover" />
+                <div className="relative">
+                  <img src="/burguer/combo-frita-bebida.png" alt="Combo do Burger Cuiabar com fritas e bebida" loading="lazy" className="h-64 w-full rounded-[1.6rem] object-cover" />
+                  <IllustrativePhotoBadge />
+                </div>
                 <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-[1.3rem] bg-[#2e0501] px-5 py-4 text-white">
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">Projeto em teste</p>
