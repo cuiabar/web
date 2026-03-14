@@ -52,7 +52,7 @@ const VagasPage = () => {
           <div className="relative min-h-[280px]">
             <img
               src="/vagas/garcom-atendente.jpg"
-              alt="Profissional de atendimento em ambiente de restaurante"
+              alt="Elaine em ambiente de atendimento no Villa Cuiabar"
               loading="eager"
               className="media-lift h-full w-full object-cover"
             />
