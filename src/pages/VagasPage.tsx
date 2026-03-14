@@ -6,6 +6,7 @@ const vacancies = [
   {
     title: 'Garçom / Atendente',
     image: '/vagas/garcom-atendente.jpg',
+    available: false,
     description:
       'Vaga para atendimento ao cliente, apoio no salão e rotina de serviço com atenção, agilidade e boa comunicação.',
     points: ['Atendimento no salão e suporte ao cliente', 'Organização da operação durante o serviço', 'Preenchimento da candidatura pelo formulário online'],
@@ -15,6 +16,7 @@ const vacancies = [
   {
     title: 'Aux. Cozinha',
     image: '/vagas/copa-aux-limpeza.jpg',
+    available: true,
     description:
       'Vaga para apoio à cozinha, preparo inicial, organização da praça e suporte à rotina operacional com atenção e agilidade.',
     points: ['Apoio à cozinha e organização da operação', 'Suporte ao preparo e rotina interna da casa', 'Preenchimento da candidatura pelo formulário online'],
@@ -24,6 +26,7 @@ const vacancies = [
   {
     title: 'Copa / Aux. Limpeza',
     image: '/vagas/copa-aux-limpeza.jpg',
+    available: true,
     description:
       'Vaga focada em apoio operacional, limpeza, organização de ambiente e suporte à rotina interna do restaurante.',
     points: ['Apoio à copa e limpeza dos ambientes', 'Organização da operação interna no dia a dia', 'Preenchimento da candidatura pelo formulário online'],
@@ -63,26 +66,58 @@ const VagasPage = () => {
 
       <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
         {vacancies.map((vacancy, index) => (
-          <Reveal key={vacancy.title} as="article" delay={index * 90} className="card overflow-hidden p-0">
-            <img src={vacancy.image} alt={vacancy.title} loading="lazy" className="media-lift h-64 w-full object-cover" />
+          <Reveal
+            key={vacancy.title}
+            as="article"
+            delay={index * 90}
+            className={`card overflow-hidden p-0 ${vacancy.available ? '' : 'border-stone-300 bg-stone-100/90'}`}
+          >
+            <div className="relative">
+              <img
+                src={vacancy.image}
+                alt={vacancy.title}
+                loading="lazy"
+                className={`h-64 w-full object-cover ${vacancy.available ? 'media-lift' : 'grayscale-[0.95] saturate-0 opacity-80'}`}
+              />
+              {!vacancy.available ? (
+                <>
+                  <div className="absolute inset-0 bg-[repeating-linear-gradient(-45deg,rgba(255,255,255,0.08)_0,rgba(255,255,255,0.08)_14px,rgba(57,57,57,0.18)_14px,rgba(57,57,57,0.18)_28px)]" />
+                  <div className="absolute left-4 right-4 top-4 rounded-full border border-white/40 bg-stone-800/85 px-4 py-2 text-center text-xs font-semibold uppercase tracking-[0.24em] text-white">
+                    Vaga indisponível no momento
+                  </div>
+                </>
+              ) : null}
+            </div>
             <div className="space-y-5 p-6 sm:p-8">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-terracotta">Vaga aberta</p>
-                <h2 className="mt-2 font-heading text-3xl text-cocoa">{vacancy.title}</h2>
-                <p className="mt-3 text-steel">{vacancy.description}</p>
+                <p
+                  className={`text-sm font-semibold uppercase tracking-[0.2em] ${
+                    vacancy.available ? 'text-terracotta' : 'text-stone-500'
+                  }`}
+                >
+                  {vacancy.available ? 'Vaga aberta' : 'Seleção pausada'}
+                </p>
+                <h2 className={`mt-2 font-heading text-3xl ${vacancy.available ? 'text-cocoa' : 'text-stone-700'}`}>{vacancy.title}</h2>
+                <p className={`mt-3 ${vacancy.available ? 'text-steel' : 'text-stone-600'}`}>{vacancy.description}</p>
               </div>
 
-              <ul className="space-y-2 text-sm text-steel">
+              <ul className={`space-y-2 text-sm ${vacancy.available ? 'text-steel' : 'text-stone-600'}`}>
                 {vacancy.points.map((point) => (
-                  <li key={point} className="rounded-2xl bg-cream/75 px-4 py-3">
+                  <li key={point} className={`rounded-2xl px-4 py-3 ${vacancy.available ? 'bg-cream/75' : 'bg-stone-200/90'}`}>
                     {point}
                   </li>
                 ))}
               </ul>
 
-              <a href={vacancy.link} target="_blank" rel="noreferrer" className="btn-primary">
-                {vacancy.buttonLabel}
-              </a>
+              {vacancy.available ? (
+                <a href={vacancy.link} target="_blank" rel="noreferrer" className="btn-primary">
+                  {vacancy.buttonLabel}
+                </a>
+              ) : (
+                <p className="rounded-2xl border border-dashed border-stone-400 px-4 py-3 text-sm font-medium text-stone-600">
+                  Essa função está temporariamente indisponível para novas candidaturas.
+                </p>
+              )}
             </div>
           </Reveal>
         ))}
