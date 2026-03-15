@@ -583,6 +583,88 @@ body {
   box-shadow: 0 34px 72px -34px rgba(110, 47, 24, 0.66);
 }
 
+.espetaria-page {
+  background:
+    radial-gradient(circle at top left, rgba(171, 75, 34, 0.18), transparent 24%),
+    radial-gradient(circle at right 12%, rgba(38, 88, 52, 0.18), transparent 26%),
+    linear-gradient(180deg, #fbf1dc 0%, #f7ead0 54%, #f2dfbf 100%);
+}
+
+.espetaria-stage {
+  position: relative;
+  isolation: isolate;
+}
+
+.espetaria-glow {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(34px);
+  opacity: 0.7;
+  z-index: 0;
+}
+
+.espetaria-glow-top {
+  top: 1.25rem;
+  right: 6%;
+  width: 12rem;
+  height: 12rem;
+  background: rgba(171, 75, 34, 0.22);
+}
+
+.espetaria-glow-bottom {
+  left: 10%;
+  bottom: 1.25rem;
+  width: 14rem;
+  height: 14rem;
+  background: rgba(38, 88, 52, 0.18);
+}
+
+.espetaria-card {
+  position: absolute;
+  z-index: 1;
+  animation: espetaria-float 9s ease-in-out infinite;
+}
+
+.espetaria-card-main {
+  top: 1rem;
+  right: 0;
+  width: min(24rem, 90vw);
+}
+
+.espetaria-card-side {
+  left: 0;
+  bottom: 0;
+  width: min(18rem, 78vw);
+  animation-delay: -3.1s;
+}
+
+.espetaria-leaf {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 2rem;
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+.espetaria-leaf-left {
+  left: 1rem;
+}
+
+.espetaria-leaf-right {
+  right: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .espetaria-leaf {
+    display: flex;
+  }
+}
+
 @media (min-width: 640px) {
   .links-editorial-row {
     padding: 1.25rem 1.15rem;
@@ -716,6 +798,17 @@ body {
   }
 }
 
+@keyframes espetaria-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate3d(0, -10px, 0) rotate(1.2deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
     scroll-behavior: auto;
@@ -748,7 +841,8 @@ body {
   .burger-center-loader-core,
   .burger-float,
   .burger-loader-icon,
-  .burger-loader-rings {
+  .burger-loader-rings,
+  .espetaria-card {
     animation: none;
   }
 }

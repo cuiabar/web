@@ -113,6 +113,23 @@
         }
       ]
     },
+    "/espetaria": {
+      "title": "Espetaria Cuiabar | Boteco raiz em Campinas",
+      "description": "Conheça a Espetaria Cuiabar, nova frente da casa com atmosfera de boteco brasileiro, clima acolhedor e projeto em preparação em Campinas.",
+      "image": "https://cuiabar.com/logo-villa-cuiabar.png",
+      "type": "website",
+      "changefreq": "weekly",
+      "priority": "0.78",
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Espetaria Cuiabar",
+          "url": "https://cuiabar.com/espetaria",
+          "description": "Página institucional da Espetaria Cuiabar com apresentação da proposta e atmosfera da nova frente da casa."
+        }
+      ]
+    },
     "/prorefeicao": {
       "title": "ProRefeição | Refeição Corporativa em Campinas",
       "description": "Solução de refeição corporativa do Villa Cuiabar para empresas, clínicas, indústrias, obras e operações recorrentes em Campinas.",

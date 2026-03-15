@@ -10,6 +10,7 @@ const PesquisaPage = lazy(() => import('../pages/PesquisaPage'));
 const ReservasPage = lazy(() => import('../pages/ReservasPage'));
 const VagasPage = lazy(() => import('../pages/VagasPage'));
 const BurguerCuiabarPage = lazy(() => import('../pages/BurguerCuiabarPage'));
+const EspetariaCuiabarPage = lazy(() => import('../pages/EspetariaCuiabarPage'));
 const LinksPage = lazy(() => import('../pages/LinksPage'));
 
 export const App = () => (
@@ -23,6 +24,7 @@ export const App = () => (
         <Route path="/burger" element={<Navigate to="/burguer" replace />} />
         <Route path="/burguer-cuiabar" element={<Navigate to="/burguer" replace />} />
         <Route path="/burguer" element={<BurguerCuiabarPage />} />
+        <Route path="/espetaria" element={<EspetariaCuiabarPage />} />
         <Route path="/links" element={<LinksPage />} />
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/prorefeicao" element={<ProRefeicaoPage />} />
