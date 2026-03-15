@@ -5,7 +5,7 @@ import { useSeo } from '../hooks/useSeo';
 
 const conceptSignals = [
   '🍢 Boteco raiz brasileiro',
-  '🥃 Copo americano ilustrativo',
+  '🥃 Copo americano na mesa',
   '🌿 Clima fresco e acolhedor',
 ];
 
@@ -36,17 +36,34 @@ const AmericanCup = ({ className = '' }: { className?: string }) => (
   >
     <path
       d="M18 10H70L62 106C61.3 113.2 55.2 118.7 48 118.7H40C32.8 118.7 26.7 113.2 26 106L18 10Z"
-      fill="rgba(255,251,232,0.82)"
-      stroke="rgba(87,51,18,0.26)"
+      fill="rgba(255,250,238,0.98)"
+      stroke="rgba(87,51,18,0.34)"
       strokeWidth="2"
     />
-    <path d="M24 26H64" stroke="rgba(87,51,18,0.12)" strokeWidth="2" />
-    <path d="M23 42H65" stroke="rgba(87,51,18,0.12)" strokeWidth="2" />
-    <path d="M22 58H66" stroke="rgba(87,51,18,0.12)" strokeWidth="2" />
-    <path d="M21 74H67" stroke="rgba(87,51,18,0.12)" strokeWidth="2" />
-    <path d="M20 90H68" stroke="rgba(87,51,18,0.12)" strokeWidth="2" />
-    <path d="M19 106H69" stroke="rgba(87,51,18,0.12)" strokeWidth="2" />
+    <path d="M23 60H65L62.5 96C61.8 103 56 108.3 49.1 108.3H38.9C32 108.3 26.2 103 25.5 96L23 60Z" fill="rgba(223,161,69,0.86)" />
+    <path d="M24 26H64" stroke="rgba(87,51,18,0.14)" strokeWidth="2" />
+    <path d="M23 42H65" stroke="rgba(87,51,18,0.14)" strokeWidth="2" />
+    <path d="M22 58H66" stroke="rgba(87,51,18,0.14)" strokeWidth="2" />
+    <path d="M21 74H67" stroke="rgba(87,51,18,0.14)" strokeWidth="2" />
+    <path d="M20 90H68" stroke="rgba(87,51,18,0.14)" strokeWidth="2" />
+    <path d="M19 106H69" stroke="rgba(87,51,18,0.14)" strokeWidth="2" />
+    <path d="M30 23H40" stroke="rgba(255,255,255,0.52)" strokeLinecap="round" strokeWidth="2.2" />
+    <path d="M28 34H38" stroke="rgba(255,255,255,0.42)" strokeLinecap="round" strokeWidth="1.8" />
   </svg>
+);
+
+const AmericanCupCluster = () => (
+  <div className="espetaria-cup-cluster" aria-hidden="true">
+    <div className="espetaria-cup espetaria-cup-backdrop">
+      <AmericanCup className="h-28 w-20" />
+    </div>
+    <div className="espetaria-cup espetaria-cup-focus">
+      <AmericanCup className="h-36 w-24" />
+    </div>
+    <div className="espetaria-cup espetaria-cup-backdrop-second">
+      <AmericanCup className="h-24 w-16" />
+    </div>
+  </div>
 );
 
 const EspetariaCuiabarPage = () => {
@@ -117,27 +134,29 @@ const EspetariaCuiabarPage = () => {
               <div className="espetaria-glow espetaria-glow-bottom" aria-hidden="true" />
 
               <Reveal delay={80} className="espetaria-card espetaria-card-main">
-                <div className="rounded-[2rem] border border-white/40 bg-[linear-gradient(160deg,rgba(87,51,18,0.96),rgba(38,88,52,0.94))] p-6 text-white shadow-[0_32px_78px_-42px_rgba(61,39,24,0.72)]">
+                <div className="rounded-[2rem] border border-[#fff5de]/35 bg-[linear-gradient(160deg,#5a3519,#2f5e3e)] p-6 text-white shadow-[0_32px_78px_-42px_rgba(61,39,24,0.72)]">
                   <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/66">Clima da página</p>
                   <h2 className="mt-4 font-heading text-4xl leading-none">Mesa, brasa e conversa boa.</h2>
                   <p className="mt-4 text-sm leading-relaxed text-white/80">
                     A direção visual da Espetaria puxa para o boteco brasileiro contemporâneo: acolhedor, regional e sem excessos.
                   </p>
 
-                  <div className="mt-6 flex items-end justify-between gap-4">
-                    <div className="flex gap-3">
-                      <AmericanCup className="h-24 w-16 opacity-90" />
-                      <AmericanCup className="h-20 w-14 translate-y-2 opacity-70" />
+                  <div className="mt-6 rounded-[1.6rem] border border-white/12 bg-black/10 p-4">
+                    <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#f4dca8]">Ilustração central</p>
+                        <p className="mt-2 text-sm leading-relaxed text-white/78">
+                          O copo americano entra como símbolo de mesa de boteco e ajuda a segurar a identidade popular da página.
+                        </p>
+                      </div>
+                      <AmericanCupCluster />
                     </div>
-                    <span className="rounded-full border border-white/16 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-white/86">
-                      Copo americano ilustrativo
-                    </span>
                   </div>
                 </div>
               </Reveal>
 
               <Reveal delay={160} className="espetaria-card espetaria-card-side">
-                <div className="rounded-[1.8rem] border border-[#6f4b27]/10 bg-[#fff9ec]/94 p-5 shadow-[0_30px_70px_-42px_rgba(61,39,24,0.34)]">
+                <div className="rounded-[1.8rem] border border-[#6f4b27]/10 bg-[#fff9ec] p-5 shadow-[0_30px_70px_-42px_rgba(61,39,24,0.34)]">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#ab4b22]">Morador honorário</p>
                   <div className="mt-3 flex items-center gap-4">
                     <div className="grid h-16 w-16 place-items-center rounded-[1.5rem] bg-[#f0d4a3] text-4xl shadow-inner">

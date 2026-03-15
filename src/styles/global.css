@@ -593,6 +593,11 @@ body {
 .espetaria-stage {
   position: relative;
   isolation: isolate;
+  display: grid;
+  gap: 1.25rem;
+  align-content: start;
+  min-height: 0;
+  padding: 1rem 0 0.5rem;
 }
 
 .espetaria-glow {
@@ -620,22 +625,53 @@ body {
 }
 
 .espetaria-card {
-  position: absolute;
+  position: relative;
   z-index: 1;
   animation: espetaria-float 9s ease-in-out infinite;
 }
 
 .espetaria-card-main {
-  top: 1rem;
-  right: 0;
-  width: min(24rem, 90vw);
+  width: min(25rem, 100%);
+  justify-self: end;
+  z-index: 2;
 }
 
 .espetaria-card-side {
-  left: 0;
-  bottom: 0;
-  width: min(18rem, 78vw);
+  width: min(18.5rem, 82%);
+  justify-self: start;
+  margin-top: -2.75rem;
   animation-delay: -3.1s;
+  z-index: 1;
+}
+
+.espetaria-cup-cluster {
+  display: flex;
+  align-items: end;
+  gap: 0.35rem;
+  min-width: 9rem;
+}
+
+.espetaria-cup {
+  display: inline-flex;
+  align-items: end;
+  justify-content: center;
+}
+
+.espetaria-cup-focus {
+  transform: translateY(0.15rem);
+}
+
+.espetaria-cup-backdrop,
+.espetaria-cup-backdrop-second {
+  opacity: 0.82;
+}
+
+.espetaria-cup-backdrop {
+  transform: rotate(-4deg) translateY(0.5rem);
+}
+
+.espetaria-cup-backdrop-second {
+  transform: rotate(6deg) translateY(0.8rem);
 }
 
 .espetaria-leaf {
@@ -662,6 +698,13 @@ body {
 @media (min-width: 1024px) {
   .espetaria-leaf {
     display: flex;
+  }
+}
+
+@media (max-width: 1023px) {
+  .espetaria-card-side {
+    width: min(22rem, 100%);
+    margin-top: 0;
   }
 }
 
