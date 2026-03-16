@@ -42,6 +42,16 @@ const CACHE_KEY_LATEST = 'marmita:latest';
 const CACHE_KEY_PREVIOUS = 'marmita:previous';
 const CACHE_KEY_LAST_SUCCESS = 'marmita:last-success';
 const CACHE_KEY_LAST_ERROR = 'marmita:last-error';
+const API_CORS_HEADERS = {
+  'access-control-allow-origin': '*',
+  'access-control-allow-methods': 'GET, POST, OPTIONS',
+  'access-control-allow-headers': 'content-type, x-refresh-token',
+};
+const PAGE_PATHS = new Set(['/', '/marmita']);
+const DATA_PATHS = new Set(['/data.json', '/marmita/data.json']);
+const HEALTH_PATHS = new Set(['/health', '/marmita/health']);
+const REFRESH_PATHS = new Set(['/admin/refresh', '/marmita/admin/refresh']);
+const SEED_PATHS = new Set(['/admin/seed', '/marmita/admin/seed']);
 
 const SECTION_MAP: Record<
   string,
@@ -76,6 +86,7 @@ const json = (data: unknown, init?: ResponseInit) =>
     headers: {
       'content-type': 'application/json; charset=utf-8',
       'cache-control': 'no-store',
+      ...API_CORS_HEADERS,
       ...(init?.headers ?? {}),
     },
   });
@@ -217,19 +228,18 @@ const extractCatalog = async (env: Env) => {
     await page.waitForSelector('#cat_70029 .product, #cat_70029 .div-block-569', { timeout: 45000 });
 
     const rawSections = await page.evaluate((sectionIds) => {
-      const root = document.querySelector('#app, [data-app], body > div') as
-        | (Element & {
-            __vue_app__?: {
-              _context?: {
-                config?: {
-                  globalProperties?: {
-                    $pinia?: {
-                      state?: {
-                        value?: {
-                          catalogo?: {
-                            data?: {
-                              categorias?: Record<string, { nome: string; itens: Record<string, Record<string, unknown>> }>;
-                            };
+      const roots = Array.from(document.querySelectorAll('*')) as Array<
+        Element & {
+          __vue_app__?: {
+            _context?: {
+              config?: {
+                globalProperties?: {
+                  $pinia?: {
+                    state?: {
+                      value?: {
+                        catalogo?: {
+                          data?: {
+                            categorias?: Record<string, { nome: string; itens: Record<string, Record<string, unknown>> }>;
                           };
                         };
                       };
@@ -238,10 +248,15 @@ const extractCatalog = async (env: Env) => {
                 };
               };
             };
-          })
-        | null;
+          };
+        }
+      >;
 
-      const categorias = root?.__vue_app__?._context?.config?.globalProperties?.$pinia?.state?.value?.catalogo?.data?.categorias;
+      const categorias =
+        roots
+          .map((root) => root.__vue_app__?._context?.config?.globalProperties?.$pinia?.state?.value?.catalogo?.data?.categorias)
+          .find((value) => value && typeof value === 'object') ?? null;
+
       if (!categorias) {
         throw new Error('Estado do catálogo não encontrado na loja do Expresso.');
       }
@@ -269,30 +284,34 @@ const extractCatalog = async (env: Env) => {
 const loadLatestSnapshot = async (env: Env) => env.MARMITA_CACHE.get<MarmitaSnapshot>(CACHE_KEY_LATEST, 'json');
 const loadPreviousSnapshot = async (env: Env) => env.MARMITA_CACHE.get<MarmitaSnapshot>(CACHE_KEY_PREVIOUS, 'json');
 
+const persistSnapshot = async (env: Env, snapshot: MarmitaSnapshot) => {
+  const current = await loadLatestSnapshot(env);
+
+  if (current) {
+    await env.MARMITA_CACHE.put(CACHE_KEY_PREVIOUS, JSON.stringify(current));
+  }
+
+  await Promise.all([
+    env.MARMITA_CACHE.put(CACHE_KEY_LATEST, JSON.stringify(snapshot)),
+    env.MARMITA_CACHE.put(
+      CACHE_KEY_LAST_SUCCESS,
+      JSON.stringify({
+        updatedAt: snapshot.updatedAt,
+        counts: {
+          classicas: snapshot.classicas.length,
+          especiais: snapshot.especiais.length,
+          massas: snapshot.massas.length,
+        },
+      }),
+    ),
+    env.MARMITA_CACHE.delete(CACHE_KEY_LAST_ERROR),
+  ]);
+};
+
 const refreshSnapshot = async (env: Env): Promise<RefreshResult> => {
   try {
-    const current = await loadLatestSnapshot(env);
     const snapshot = await extractCatalog(env);
-
-    if (current) {
-      await env.MARMITA_CACHE.put(CACHE_KEY_PREVIOUS, JSON.stringify(current));
-    }
-
-    await Promise.all([
-      env.MARMITA_CACHE.put(CACHE_KEY_LATEST, JSON.stringify(snapshot)),
-      env.MARMITA_CACHE.put(
-        CACHE_KEY_LAST_SUCCESS,
-        JSON.stringify({
-          updatedAt: snapshot.updatedAt,
-          counts: {
-            classicas: snapshot.classicas.length,
-            especiais: snapshot.especiais.length,
-            massas: snapshot.massas.length,
-          },
-        }),
-      ),
-      env.MARMITA_CACHE.delete(CACHE_KEY_LAST_ERROR),
-    ]);
+    await persistSnapshot(env, snapshot);
 
     return { ok: true, snapshot };
   } catch (error) {
@@ -704,6 +723,7 @@ const renderPage = async (env: Env, snapshot: MarmitaSnapshot, meta?: { stale?: 
     headers: {
       'content-type': 'text/html; charset=utf-8',
       'cache-control': CACHE_CONTROL_PUBLIC,
+      ...API_CORS_HEADERS,
     },
   });
 };
@@ -712,6 +732,21 @@ const isAuthorized = (request: Request, env: Env) => {
   const url = new URL(request.url);
   const token = url.searchParams.get('token') ?? request.headers.get('x-refresh-token');
   return Boolean(token && env.MARMITA_REFRESH_TOKEN && token === env.MARMITA_REFRESH_TOKEN);
+};
+
+const isSnapshotShape = (value: unknown): value is MarmitaSnapshot => {
+  if (!value || typeof value !== 'object') {
+    return false;
+  }
+
+  const snapshot = value as Record<string, unknown>;
+  return (
+    typeof snapshot.updatedAt === 'string' &&
+    typeof snapshot.sourceUrl === 'string' &&
+    Array.isArray(snapshot.classicas) &&
+    Array.isArray(snapshot.especiais) &&
+    Array.isArray(snapshot.massas)
+  );
 };
 
 const serveHealth = async (env: Env) => {
@@ -737,7 +772,14 @@ export default {
     const url = new URL(request.url);
     const pathname = url.pathname.replace(/\/+$/, '') || '/';
 
-    if (pathname === '/marmita/admin/refresh') {
+    if (request.method === 'OPTIONS') {
+      return new Response(null, {
+        status: 204,
+        headers: API_CORS_HEADERS,
+      });
+    }
+
+    if (REFRESH_PATHS.has(pathname)) {
       if (!isAuthorized(request, env)) {
         return json({ ok: false, error: 'Não autorizado.' }, { status: 401 });
       }
@@ -746,11 +788,30 @@ export default {
       return json(result, { status: result.ok ? 200 : 502 });
     }
 
-    if (pathname === '/marmita/health') {
+    if (SEED_PATHS.has(pathname)) {
+      if (!isAuthorized(request, env)) {
+        return json({ ok: false, error: 'Não autorizado.' }, { status: 401 });
+      }
+
+      const body = await request.json().catch(() => null);
+      if (!isSnapshotShape(body)) {
+        return json({ ok: false, error: 'Snapshot inválido.' }, { status: 400 });
+      }
+
+      const snapshot: MarmitaSnapshot = {
+        ...body,
+        updatedAt: body.updatedAt || new Date().toISOString(),
+      };
+
+      await persistSnapshot(env, snapshot);
+      return json({ ok: true, snapshot });
+    }
+
+    if (HEALTH_PATHS.has(pathname)) {
       return serveHealth(env);
     }
 
-    if (pathname === '/marmita/data.json') {
+    if (DATA_PATHS.has(pathname)) {
       const snapshot = (await loadLatestSnapshot(env)) ?? (await loadPreviousSnapshot(env));
       if (!snapshot) {
         ctx.waitUntil(refreshSnapshot(env));
@@ -760,11 +821,12 @@ export default {
         headers: {
           'content-type': 'application/json; charset=utf-8',
           'cache-control': CACHE_CONTROL_PUBLIC,
+          ...API_CORS_HEADERS,
         },
       });
     }
 
-    if (pathname !== '/marmita') {
+    if (!PAGE_PATHS.has(pathname)) {
       return new Response('Not found', { status: 404 });
     }
 

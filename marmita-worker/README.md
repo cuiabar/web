@@ -1,6 +1,6 @@
 # Cuiabar Marmita Worker
 
-Worker dedicado para servir `https://cuiabar.com/marmita` com espelhamento automático do cardápio do Expresso Cuiabar.
+Worker dedicado para alimentar `https://cuiabar.com/marmita` com espelhamento automático do cardápio do Expresso Cuiabar.
 
 ## O que faz
 
@@ -18,15 +18,18 @@ Worker dedicado para servir `https://cuiabar.com/marmita` com espelhamento autom
    - `wrangler kv namespace create MARMITA_CACHE`
    - `wrangler kv namespace create MARMITA_CACHE --preview`
 2. Preencher `id` e `preview_id` no `wrangler.jsonc`
-3. Trocar `MARMITA_REFRESH_TOKEN` por um token forte
+3. Definir o secret `MARMITA_REFRESH_TOKEN` com um token forte
 4. Garantir que a conta Cloudflare tenha Browser Rendering habilitado
 
 ## Rotas
 
-- `GET /marmita`
-- `GET /marmita/data.json`
-- `GET /marmita/health`
-- `POST /marmita/admin/refresh?token=...`
+Subdomínio do Worker: `https://marmita-api.cuiabar.com`
+
+- `GET /`
+- `GET /data.json`
+- `GET /health`
+- `POST /admin/refresh?token=...`
+- `POST /admin/seed?token=...`
 
 ## Comandos
 
