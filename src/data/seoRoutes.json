@@ -95,24 +95,6 @@
         }
       ]
     },
-    "/marmita": {
-      "title": "Cuiabar Marmita | Clássicas, especiais e massas",
-      "description": "Veja as Marmitas Clássicas, Marmitas Especiais e Massas & Risotos do Cuiabar em uma página rápida, atualizada automaticamente e pronta para pedido no WhatsApp.",
-      "image": "https://cuiabar.com/favicon.png",
-      "type": "website",
-      "changefreq": "daily",
-      "priority": "0.88",
-      "schema": [
-        {
-          "@context": "https://schema.org",
-          "@type": "Menu",
-          "name": "Cuiabar Marmita",
-          "description": "Espelho do cardápio de Marmitas Clássicas, Marmitas Especiais e Massas & Risotos do Cuiabar.",
-          "url": "https://cuiabar.com/marmita",
-          "inLanguage": "pt-BR"
-        }
-      ]
-    },
     "/burguer": {
       "title": "Burguer Cuiabar | Cardápio piloto em Campinas",
       "description": "Cardápio oficial do Burguer Cuiabar com lanches e combos. Projeto piloto da house Cuiabar com pedido pelo site, iFood e WhatsApp em Campinas.",
