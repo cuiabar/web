@@ -129,6 +129,20 @@ const BurguerCuiabarPage = () => {
           </div>
         </Reveal>
 
+        <Reveal className="rounded-[1.6rem] border border-[#b64811]/14 bg-white/72 px-5 py-4 shadow-[0_20px_50px_-40px_rgba(46,5,1,0.28)]">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[#b64811]">Disponibilidade atual</p>
+              <p className="mt-1 text-sm leading-relaxed text-[#6c4336] sm:text-[0.96rem]">
+                Por enquanto, o Burger Cuiabar está disponível de quarta a sábado, a partir das 18h.
+              </p>
+            </div>
+            <span className="inline-flex w-fit items-center rounded-full bg-[#fff2e2] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#7a3315]">
+              Quarta a sábado · 18h+
+            </span>
+          </div>
+        </Reveal>
+
         <Reveal
           as="header"
           className="overflow-hidden rounded-[2.8rem] border border-[#6c4336]/12 bg-[linear-gradient(135deg,#fffbd6_0%,#fcf2d0_44%,#feddb5_100%)] px-6 py-8 shadow-[0_42px_110px_-56px_rgba(46,5,1,0.46)] sm:px-8 lg:px-10 lg:py-10"
