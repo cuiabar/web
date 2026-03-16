@@ -1,0 +1,32 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "cuiabar-marmita",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-03-16",
+  "compatibility_flags": ["nodejs_compat"],
+  "routes": [
+    {
+      "pattern": "cuiabar.com/marmita*",
+      "zone_name": "cuiabar.com"
+    }
+  ],
+  "triggers": {
+    "crons": ["30 9 * * *"]
+  },
+  "vars": {
+    "MARMITA_SOURCE_URL": "https://expresso.cuiabar.com/loja/pedidos",
+    "MARMITA_WHATSAPP_NUMBER": "551933058878",
+    "MARMITA_WHATSAPP_MESSAGE": "Olá! Quero pedir uma marmita do Cuiabar.",
+    "MARMITA_REFRESH_TOKEN": "REPLACE_WITH_STRONG_TOKEN"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "MARMITA_CACHE",
+      "id": "REPLACE_WITH_KV_NAMESPACE_ID",
+      "preview_id": "REPLACE_WITH_KV_PREVIEW_NAMESPACE_ID"
+    }
+  ],
+  "browser": {
+    "binding": "BROWSER"
+  }
+}
