@@ -4,6 +4,12 @@ import { siteConfig } from '../data/siteConfig';
 
 const whatsAppHref = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`;
 
+const OwnedPhotoBadge = () => (
+  <span className="absolute left-3 top-3 rounded-full border border-white/35 bg-black/50 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-white backdrop-blur-sm">
+    Fotos próprias
+  </span>
+);
+
 export const HeroSection = () => (
   <section className="container-shell grid items-center gap-8 py-14 lg:grid-cols-2 lg:py-20">
     <Reveal className="lg:pr-4">
@@ -20,12 +26,34 @@ export const HeroSection = () => (
       </div>
     </Reveal>
     <Reveal delay={140} className="card overflow-hidden p-3">
-      <img
-        src="https://static.wixstatic.com/media/f30eee_6de0ddcd8445473086c6f3a90f1abb1e~mv2.png"
-        alt="Prato servido no Villa Cuiabar"
-        loading="eager"
-        className="media-lift h-[420px] w-full rounded-2xl object-cover"
-      />
+      <div className="grid gap-3 lg:grid-cols-[1.15fr_0.85fr]">
+        <div className="relative overflow-hidden rounded-2xl">
+          <OwnedPhotoBadge />
+          <img
+            src="/home/home-salao-dia-da-mulher.jpg"
+            alt="Salão do Villa Cuiabar com mesas montadas e ambiente acolhedor"
+            loading="eager"
+            className="media-lift h-[420px] w-full object-cover"
+          />
+        </div>
+        <div className="grid gap-3">
+          <div className="relative overflow-hidden rounded-2xl">
+            <OwnedPhotoBadge />
+            <img
+              src="/home/home-mascote-salao.jpg"
+              alt="Entrada do salão do Villa Cuiabar com o mascote da casa"
+              loading="lazy"
+              className="media-lift h-[203px] w-full object-cover"
+            />
+          </div>
+          <div className="rounded-2xl bg-[linear-gradient(160deg,#fff6ea_0%,#f7e4d0_100%)] p-5">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-terracotta">Ambiente próprio</p>
+            <p className="mt-3 text-sm leading-relaxed text-steel">
+              Espaço familiar, clima acolhedor e estrutura preparada para almoço, encontros e noites com música ao vivo.
+            </p>
+          </div>
+        </div>
+      </div>
     </Reveal>
   </section>
 );
