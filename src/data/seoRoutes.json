@@ -1,89 +1,201 @@
 {
   "siteOrigin": "https://cuiabar.com",
-  "defaultImage": "https://cuiabar.com/favicon.png",
+  "defaultImage": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
   "routes": {
     "/": {
-      "title": "Villa Cuiabar | Restaurante em Campinas",
-      "description": "Villa Cuiabar em Campinas com delivery no almoço, música ao vivo, menu completo, reservas por WhatsApp e operação corporativa com o ProRefeição.",
-      "image": "https://cuiabar.com/favicon.png",
+      "title": "Villa Cuiabar | Restaurante com música ao vivo em Campinas",
+      "description": "Villa Cuiabar em Campinas com delivery no almoço, música ao vivo, menu completo, reservas por WhatsApp e soluções corporativas do ProRefeição.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "imageAlt": "Salão do Villa Cuiabar em Campinas com mesas montadas e iluminação acolhedora",
       "type": "website",
       "changefreq": "daily",
       "priority": "1.0",
+      "keywords": [
+        "restaurante em Campinas",
+        "música ao vivo em Campinas",
+        "delivery em Campinas",
+        "Villa Cuiabar",
+        "Cuiabar Campinas",
+        "restaurante familiar em Campinas"
+      ],
       "schema": [
         {
           "@context": "https://schema.org",
           "@type": "Restaurant",
+          "@id": "https://cuiabar.com/#restaurant",
           "name": "Villa Cuiabar",
+          "alternateName": "Cuiabar",
+          "description": "Restaurante em Campinas com delivery no almoço, música ao vivo e operação corporativa com o ProRefeição.",
           "url": "https://cuiabar.com/",
-          "image": "https://cuiabar.com/logo-villa-cuiabar.png",
+          "logo": "https://cuiabar.com/logo-villa-cuiabar.png",
+          "image": [
+            "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+            "https://cuiabar.com/home/home-mascote-salao.jpg"
+          ],
           "telephone": "+55 19 3305-8878",
           "email": "cuiabar@cuiabar.net",
-          "servesCuisine": ["Brasileira", "Mato-grossense", "Hambúrgueres"],
           "priceRange": "$$",
+          "servesCuisine": [
+            "Brasileira",
+            "Mato-grossense",
+            "Churrasco",
+            "Hambúrgueres"
+          ],
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "Av. Brigadeiro Rafael Tobias de Aguiar, 1121 - Jardim Aurélia",
             "addressLocality": "Campinas",
             "addressRegion": "SP",
+            "postalCode": "13033-010",
             "addressCountry": "BR"
           },
+          "hasMap": "https://www.google.com/maps/search/?api=1&query=Av.%20Brigadeiro%20Rafael%20Tobias%20de%20Aguiar%2C%201121%20-%20Jardim%20Aurelia%20-%20Campinas%2FSP",
           "sameAs": [
             "https://instagram.com/cuiabar",
             "https://facebook.com/villacuiabar",
             "https://whatsapp.com/channel/0029VbAcHLXFSAsxCt6lly0a"
           ],
-          "hasMenu": "https://cuiabar.com/menu"
+          "hasMenu": "https://cuiabar.com/menu",
+          "acceptsReservations": true,
+          "potentialAction": [
+            {
+              "@type": "OrderAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://expresso.cuiabar.com"
+              }
+            },
+            {
+              "@type": "ReserveAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://wa.me/551933058878?text=Ol%C3%A1%2C%20tudo%20bem%3F"
+              }
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "@id": "https://cuiabar.com/#organization",
+          "name": "Villa Cuiabar",
+          "url": "https://cuiabar.com/",
+          "logo": "https://cuiabar.com/logo-villa-cuiabar.png",
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": "+55 19 3305-8878",
+              "contactType": "customer support",
+              "areaServed": "BR",
+              "availableLanguage": [
+                "pt-BR"
+              ]
+            }
+          ]
         },
         {
           "@context": "https://schema.org",
           "@type": "WebSite",
+          "@id": "https://cuiabar.com/#website",
           "name": "Villa Cuiabar",
-          "url": "https://cuiabar.com/"
+          "url": "https://cuiabar.com/",
+          "inLanguage": "pt-BR",
+          "publisher": {
+            "@id": "https://cuiabar.com/#organization"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Como faço minha reserva?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "As reservas e confirmações são feitas exclusivamente pelo WhatsApp do restaurante."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quando tem música ao vivo?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O presencial com música acontece às sextas, sábados e domingos."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quais dias têm atendimento noturno?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O delivery à noite funciona de quarta a sábado."
+              }
+            }
+          ]
         }
       ]
     },
     "/menu": {
-      "title": "Menu | Villa Cuiabar | Campinas",
-      "description": "Cardápio completo do Villa Cuiabar com porções, pratos, burgers, bebidas, drinks, cervejas, saladas e complementos em Campinas.",
+      "title": "Menu | Villa Cuiabar em Campinas",
+      "description": "Veja o cardápio do Villa Cuiabar com porções, pratos, burgers, massas, bebidas, drinks e acompanhamentos em Campinas.",
       "image": "https://cuiabar.com/menu/bife-chorizo.png",
-      "type": "article",
+      "imageAlt": "Prato Bife Chorizo do Villa Cuiabar",
+      "type": "website",
       "changefreq": "weekly",
       "priority": "0.95",
+      "keywords": [
+        "cardápio Villa Cuiabar",
+        "menu restaurante Campinas",
+        "porções em Campinas",
+        "pratos executivos Campinas",
+        "drinks e cervejas Campinas"
+      ],
       "schema": [
         {
           "@context": "https://schema.org",
           "@type": "Menu",
-          "name": "Menu Villa Cuiabar",
-          "description": "Cardápio completo do Villa Cuiabar com porções, pratos e bebidas.",
+          "name": "Cardápio Villa Cuiabar",
+          "description": "Cardápio completo do Villa Cuiabar com porções, pratos, massas, burgers, bebidas e drinks.",
           "url": "https://cuiabar.com/menu",
           "inLanguage": "pt-BR"
         }
       ]
     },
     "/pesquisa": {
-      "title": "Pesquisa Google | Villa Cuiabar | Campinas",
-      "description": "Pesquise páginas, menu, Burguer Cuiabar, ProRefeição, reservas e vagas do Villa Cuiabar com o mecanismo de pesquisa do Google.",
+      "title": "Pesquisa | Villa Cuiabar",
+      "description": "Ferramenta de pesquisa interna da Cuiabar para encontrar páginas, cardápio, vagas e informações do restaurante.",
       "image": "https://cuiabar.com/logo-villa-cuiabar.png",
+      "imageAlt": "Logo do Villa Cuiabar",
       "type": "website",
       "changefreq": "monthly",
-      "priority": "0.65",
+      "priority": "0.2",
+      "robots": "noindex,follow",
+      "includeInSitemap": false,
       "schema": [
         {
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "name": "Pesquisa Google Villa Cuiabar",
+          "name": "Pesquisa Villa Cuiabar",
           "url": "https://cuiabar.com/pesquisa",
-          "description": "Página de pesquisa do site Villa Cuiabar usando Google Programmable Search Engine."
+          "description": "Página de pesquisa interna do site Villa Cuiabar."
         }
       ]
     },
     "/links": {
-      "title": "Cuiabar | Links oficiais",
-      "description": "Acesse os links oficiais da Cuiabar: canal no WhatsApp, atendimento, pedidos diretos, vagas e informações do restaurante.",
-      "image": "https://cuiabar.com/favicon.png",
+      "title": "Cuiabar | Links oficiais em Campinas",
+      "description": "Acesse os links oficiais da Cuiabar: canal no WhatsApp, atendimento, pedidos diretos, vagas e localização em Campinas.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "imageAlt": "Salão do Villa Cuiabar em Campinas",
       "type": "website",
       "changefreq": "weekly",
       "priority": "0.82",
+      "keywords": [
+        "links Cuiabar",
+        "WhatsApp Cuiabar",
+        "pedido direto Cuiabar",
+        "localização Cuiabar"
+      ],
       "schema": [
         {
           "@context": "https://schema.org",
@@ -97,29 +209,118 @@
     },
     "/burguer": {
       "title": "Burguer Cuiabar | Cardápio piloto em Campinas",
-      "description": "Cardápio oficial do Burguer Cuiabar com lanches e combos. Projeto piloto da house Cuiabar com pedido pelo site, iFood e WhatsApp em Campinas.",
-      "image": "https://cuiabar.com/burguer/capa-burger-cuiabar.png",
-      "type": "article",
+      "description": "Cardápio oficial do Burguer Cuiabar com lanches e combos. Projeto piloto da house Cuiabar com pedido no site, iFood e WhatsApp em Campinas.",
+      "image": "https://cuiabar.com/burguer/burger-classico.png",
+      "imageAlt": "Hambúrguer clássico do Burguer Cuiabar",
+      "type": "website",
       "changefreq": "weekly",
       "priority": "0.9",
+      "keywords": [
+        "hambúrguer em Campinas",
+        "burger Cuiabar",
+        "smash burger Campinas",
+        "iFood burger Cuiabar",
+        "combo hambúrguer Campinas"
+      ],
       "schema": [
         {
           "@context": "https://schema.org",
           "@type": "Menu",
-          "name": "Burger Cuiabar",
-          "description": "Projeto piloto do Cuiabar com linha de burgers e combos.",
+          "name": "Cardápio Burguer Cuiabar",
+          "description": "Projeto piloto do Cuiabar com burgers preparados na chapa, carnes selecionadas e combos.",
           "url": "https://cuiabar.com/burguer",
-          "inLanguage": "pt-BR"
+          "inLanguage": "pt-BR",
+          "hasMenuSection": [
+            {
+              "@type": "MenuSection",
+              "name": "Lanches",
+              "hasMenuItem": [
+                {
+                  "@type": "MenuItem",
+                  "name": "X-Tradicional",
+                  "description": "Pão brioche, hambúrguer Texas sabor picanha, mussarela, alface americana e tomate.",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "22.90",
+                    "priceCurrency": "BRL"
+                  }
+                },
+                {
+                  "@type": "MenuItem",
+                  "name": "Picanha Clássico",
+                  "description": "Pão brioche, hambúrguer de picanha 120g, mussarela, alface americana, tomate e baconnese.",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "34.40",
+                    "priceCurrency": "BRL"
+                  }
+                },
+                {
+                  "@type": "MenuItem",
+                  "name": "Picanha Bacon",
+                  "description": "Pão brioche, hambúrguer de picanha 120g, cheddar, bacon, cebola na manteiga e baconnese.",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "40.10",
+                    "priceCurrency": "BRL"
+                  }
+                }
+              ]
+            },
+            {
+              "@type": "MenuSection",
+              "name": "Combos",
+              "hasMenuItem": [
+                {
+                  "@type": "MenuItem",
+                  "name": "Combo X-Tradicional completo",
+                  "description": "X-Tradicional com fritas e bebida lata.",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "36.70",
+                    "priceCurrency": "BRL"
+                  }
+                },
+                {
+                  "@type": "MenuItem",
+                  "name": "Combo Picanha Clássico completo",
+                  "description": "Picanha Clássico com fritas e bebida lata.",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "48.20",
+                    "priceCurrency": "BRL"
+                  }
+                },
+                {
+                  "@type": "MenuItem",
+                  "name": "Combo Picanha Bacon completo",
+                  "description": "Picanha Bacon com fritas e bebida lata.",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "53.90",
+                    "priceCurrency": "BRL"
+                  }
+                }
+              ]
+            }
+          ]
         }
       ]
     },
     "/espetaria": {
       "title": "Espetaria Cuiabar | Boteco raiz em Campinas",
       "description": "Conheça a Espetaria Cuiabar, nova frente da casa com atmosfera de boteco brasileiro, clima acolhedor e projeto em preparação em Campinas.",
-      "image": "https://cuiabar.com/logo-villa-cuiabar.png",
+      "image": "https://cuiabar.com/home/home-mascote-salao.jpg",
+      "imageAlt": "Entrada do salão do Villa Cuiabar com mascote da casa",
       "type": "website",
       "changefreq": "weekly",
       "priority": "0.78",
+      "keywords": [
+        "espetaria em Campinas",
+        "boteco em Campinas",
+        "Espetaria Cuiabar",
+        "bar brasileiro Campinas"
+      ],
       "schema": [
         {
           "@context": "https://schema.org",
@@ -131,12 +332,19 @@
       ]
     },
     "/prorefeicao": {
-      "title": "ProRefeição | Refeição Corporativa em Campinas",
+      "title": "ProRefeição | Refeição corporativa em Campinas",
       "description": "Solução de refeição corporativa do Villa Cuiabar para empresas, clínicas, indústrias, obras e operações recorrentes em Campinas.",
       "image": "https://cuiabar.com/prorefeicao/hero-parmegiana.png",
-      "type": "article",
+      "imageAlt": "Refeição corporativa do ProRefeição com parmegiana, arroz e fritas",
+      "type": "website",
       "changefreq": "weekly",
       "priority": "0.85",
+      "keywords": [
+        "refeição corporativa Campinas",
+        "marmitas para empresa Campinas",
+        "alimentação corporativa Campinas",
+        "ProRefeição Cuiabar"
+      ],
       "schema": [
         {
           "@context": "https://schema.org",
@@ -145,24 +353,36 @@
           "serviceType": "Refeição corporativa",
           "provider": {
             "@type": "Organization",
-            "name": "Villa Cuiabar"
+            "name": "Villa Cuiabar",
+            "url": "https://cuiabar.com/"
           },
           "areaServed": {
             "@type": "City",
             "name": "Campinas"
           },
+          "audience": {
+            "@type": "BusinessAudience",
+            "audienceType": "Empresas, clínicas, hospitais, obras e indústrias"
+          },
           "url": "https://cuiabar.com/prorefeicao",
-          "description": "Atendimento de refeição corporativa para empresas e operações recorrentes."
+          "description": "Atendimento de refeição corporativa para empresas e operações recorrentes com embalagens seladas e rotina organizada."
         }
       ]
     },
     "/reservas": {
-      "title": "Reservas | Villa Cuiabar | Campinas",
-      "description": "Faça sua reserva no Villa Cuiabar pelo WhatsApp para mesas, aniversários, grupos e atendimento presencial em Campinas.",
-      "image": "https://cuiabar.com/logo-villa-cuiabar.png",
+      "title": "Reservas | Villa Cuiabar em Campinas",
+      "description": "Faça sua reserva no Villa Cuiabar pelo WhatsApp para mesas, aniversários, grupos e atendimento presencial com música em Campinas.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "imageAlt": "Salão do Villa Cuiabar pronto para receber reservas em Campinas",
       "type": "website",
       "changefreq": "monthly",
       "priority": "0.8",
+      "keywords": [
+        "reservas restaurante Campinas",
+        "reservar mesa Villa Cuiabar",
+        "aniversário em restaurante Campinas",
+        "música ao vivo Campinas"
+      ],
       "schema": [
         {
           "@context": "https://schema.org",
@@ -170,16 +390,53 @@
           "name": "Reservas Villa Cuiabar",
           "url": "https://cuiabar.com/reservas",
           "description": "Página de reservas e atendimento via WhatsApp do Villa Cuiabar."
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Como faço minha reserva?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "As reservas e confirmações são feitas exclusivamente pelo WhatsApp do restaurante."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quando tem música ao vivo?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O presencial com música acontece às sextas, sábados e domingos."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quais dias têm atendimento noturno?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O delivery à noite funciona de quarta a sábado."
+              }
+            }
+          ]
         }
       ]
     },
     "/vagas": {
-      "title": "Vagas | Villa Cuiabar | Campinas",
-      "description": "Confira vagas abertas no Villa Cuiabar e envie sua candidatura online para atendimento, copa e limpeza.",
+      "title": "Vagas | Villa Cuiabar em Campinas",
+      "description": "Confira vagas abertas no Villa Cuiabar e envie sua candidatura online para Aux. Cozinha e Copa / Aux. Limpeza em Campinas.",
       "image": "https://cuiabar.com/vagas/garcom-atendente.jpg",
+      "imageAlt": "Elaine em ambiente de atendimento no Villa Cuiabar",
       "type": "website",
       "changefreq": "weekly",
       "priority": "0.7",
+      "keywords": [
+        "vagas em restaurante Campinas",
+        "trabalhe no Villa Cuiabar",
+        "auxiliar de cozinha Campinas",
+        "copa e limpeza Campinas"
+      ],
       "schema": [
         {
           "@context": "https://schema.org",
@@ -189,12 +446,12 @@
             {
               "@type": "ListItem",
               "position": 1,
-              "name": "Garçom / Atendente"
+              "name": "Aux. Cozinha"
             },
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "Copa / Auxiliar de Limpeza"
+              "name": "Copa / Aux. Limpeza"
             }
           ],
           "url": "https://cuiabar.com/vagas"
@@ -202,21 +459,76 @@
       ]
     },
     "/pedidos-online": {
-      "title": "Pedidos Online | Villa Cuiabar | Campinas",
-      "description": "Acesse os canais oficiais de pedidos do Villa Cuiabar, incluindo site próprio, iFood, 99Food e WhatsApp.",
-      "image": "https://cuiabar.com/logo-villa-cuiabar.png",
+      "title": "Pedidos online | Villa Cuiabar em Campinas",
+      "description": "Acesse os canais oficiais de pedidos do Villa Cuiabar: site próprio, iFood, 99Food e atendimento por WhatsApp.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "imageAlt": "Ambiente do Villa Cuiabar em Campinas",
       "type": "website",
       "changefreq": "monthly",
       "priority": "0.75",
+      "keywords": [
+        "pedido online Cuiabar",
+        "delivery Campinas",
+        "iFood Villa Cuiabar",
+        "Expresso Cuiabar"
+      ],
       "schema": [
         {
           "@context": "https://schema.org",
           "@type": "ContactPage",
-          "name": "Pedidos Online Villa Cuiabar",
+          "name": "Pedidos online Villa Cuiabar",
           "url": "https://cuiabar.com/pedidos-online",
           "description": "Canais oficiais para pedidos online do Villa Cuiabar."
         }
       ]
+    },
+    "/bio": {
+      "title": "Links oficiais | Cuiabar",
+      "description": "Atalho para a página de links oficiais da Cuiabar.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "canonicalPath": "/links",
+      "robots": "noindex,follow",
+      "includeInSitemap": false
+    },
+    "/acessos": {
+      "title": "Links oficiais | Cuiabar",
+      "description": "Atalho para a página de links oficiais da Cuiabar.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "canonicalPath": "/links",
+      "robots": "noindex,follow",
+      "includeInSitemap": false
+    },
+    "/burger": {
+      "title": "Burguer Cuiabar | Cardápio piloto em Campinas",
+      "description": "Atalho para o cardápio oficial do Burguer Cuiabar.",
+      "image": "https://cuiabar.com/burguer/burger-classico.png",
+      "canonicalPath": "/burguer",
+      "robots": "noindex,follow",
+      "includeInSitemap": false
+    },
+    "/burguer-cuiabar": {
+      "title": "Burguer Cuiabar | Cardápio piloto em Campinas",
+      "description": "Atalho para o cardápio oficial do Burguer Cuiabar.",
+      "image": "https://cuiabar.com/burguer/burger-classico.png",
+      "canonicalPath": "/burguer",
+      "robots": "noindex,follow",
+      "includeInSitemap": false
+    },
+    "/blog": {
+      "title": "Villa Cuiabar | Restaurante em Campinas",
+      "description": "Atalho para a página principal do Villa Cuiabar.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "canonicalPath": "/",
+      "robots": "noindex,follow",
+      "includeInSitemap": false
+    },
+    "/marmita": {
+      "title": "Pedidos online | Villa Cuiabar em Campinas",
+      "description": "Atalho para os pedidos online do Villa Cuiabar.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "canonicalPath": "/pedidos-online",
+      "robots": "noindex,follow",
+      "includeInSitemap": false
     }
   }
 }

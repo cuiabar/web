@@ -6,9 +6,14 @@ export type RouteSeo = {
   title: string;
   description: string;
   image?: string;
+  imageAlt?: string;
   type?: string;
   changefreq?: string;
   priority?: string;
+  keywords?: string[];
+  robots?: string;
+  canonicalPath?: string;
+  includeInSitemap?: boolean;
   schema?: SchemaBlock[];
 };
 
